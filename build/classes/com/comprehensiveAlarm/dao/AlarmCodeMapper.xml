@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.comprehensiveAlarm.dao.AlarmCodeMapper" >
+  <resultMap id="BaseResultMap" type="com.comprehensiveAlarm.po.AlarmCode" >
+    <id column="alarm_code_id" property="alarm_code_id" jdbcType="VARCHAR" />
+    <result column="alarm_code_name" property="alarm_code_name" jdbcType="VARCHAR" />
+    <result column="level" property="level" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="min_threshold" property="min_threshold" jdbcType="INTEGER" />
+    <result column="max_threshold" property="max_threshold" jdbcType="INTEGER" />
+    <result column="scene_id" property="scene_id" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    alarm_code_id, alarm_code_name, level, description, min_threshold, max_threshold, 
+    scene_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.comprehensiveAlarm.po.AlarmCodeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from alarm_code
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from alarm_code
+    where alarm_code_id = #{alarm_code_id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from alarm_code
+    where alarm_code_id = #{alarm_code_id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.comprehensiveAlarm.po.AlarmCodeExample" >
+    delete from alarm_code
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.comprehensiveAlarm.po.AlarmCode" >
+    insert into alarm_code (alarm_code_id, alarm_code_name, level, 
+      description, min_threshold, max_threshold, 
+      scene_id)
+    values (#{alarm_code_id,jdbcType=VARCHAR}, #{alarm_code_name,jdbcType=VARCHAR}, #{level,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{min_threshold,jdbcType=INTEGER}, #{max_threshold,jdbcType=INTEGER}, 
+      #{scene_id,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.comprehensiveAlarm.po.AlarmCode" >
+    insert into alarm_code
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="alarm_code_id != null" >
+        alarm_code_id,
+      </if>
+      <if test="alarm_code_name != null" >
+        alarm_code_name,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="min_threshold != null" >
+        min_threshold,
+      </if>
+      <if test="max_threshold != null" >
+        max_threshold,
+      </if>
+      <if test="scene_id != null" >
+        scene_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="alarm_code_id != null" >
+        #{alarm_code_id,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm_code_name != null" >
+        #{alarm_code_name,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="min_threshold != null" >
+        #{min_threshold,jdbcType=INTEGER},
+      </if>
+      <if test="max_threshold != null" >
+        #{max_threshold,jdbcType=INTEGER},
+      </if>
+      <if test="scene_id != null" >
+        #{scene_id,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.comprehensiveAlarm.po.AlarmCodeExample" resultType="java.lang.Integer" >
+    select count(*) from alarm_code
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update alarm_code
+    <set >
+      <if test="record.alarm_code_id != null" >
+        alarm_code_id = #{record.alarm_code_id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alarm_code_name != null" >
+        alarm_code_name = #{record.alarm_code_name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.level != null" >
+        level = #{record.level,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.min_threshold != null" >
+        min_threshold = #{record.min_threshold,jdbcType=INTEGER},
+      </if>
+      <if test="record.max_threshold != null" >
+        max_threshold = #{record.max_threshold,jdbcType=INTEGER},
+      </if>
+      <if test="record.scene_id != null" >
+        scene_id = #{record.scene_id,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update alarm_code
+    set alarm_code_id = #{record.alarm_code_id,jdbcType=VARCHAR},
+      alarm_code_name = #{record.alarm_code_name,jdbcType=VARCHAR},
+      level = #{record.level,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      min_threshold = #{record.min_threshold,jdbcType=INTEGER},
+      max_threshold = #{record.max_threshold,jdbcType=INTEGER},
+      scene_id = #{record.scene_id,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.comprehensiveAlarm.po.AlarmCode" >
+    update alarm_code
+    <set >
+      <if test="alarm_code_name != null" >
+        alarm_code_name = #{alarm_code_name,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="min_threshold != null" >
+        min_threshold = #{min_threshold,jdbcType=INTEGER},
+      </if>
+      <if test="max_threshold != null" >
+        max_threshold = #{max_threshold,jdbcType=INTEGER},
+      </if>
+      <if test="scene_id != null" >
+        scene_id = #{scene_id,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where alarm_code_id = #{alarm_code_id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.comprehensiveAlarm.po.AlarmCode" >
+    update alarm_code
+    set alarm_code_name = #{alarm_code_name,jdbcType=VARCHAR},
+      level = #{level,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      min_threshold = #{min_threshold,jdbcType=INTEGER},
+      max_threshold = #{max_threshold,jdbcType=INTEGER},
+      scene_id = #{scene_id,jdbcType=VARCHAR}
+    where alarm_code_id = #{alarm_code_id,jdbcType=VARCHAR}
+  </update>
+</mapper>

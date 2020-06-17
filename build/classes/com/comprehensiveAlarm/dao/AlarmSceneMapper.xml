@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.comprehensiveAlarm.dao.AlarmSceneMapper" >
+  <resultMap id="BaseResultMap" type="com.comprehensiveAlarm.po.AlarmScene" >
+    <id column="scene_id" property="scene_id" jdbcType="VARCHAR" />
+    <result column="scene_name" property="scene_name" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    scene_id, scene_name
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.comprehensiveAlarm.po.AlarmSceneExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from alarm_scene
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from alarm_scene
+    where scene_id = #{scene_id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from alarm_scene
+    where scene_id = #{scene_id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.comprehensiveAlarm.po.AlarmSceneExample" >
+    delete from alarm_scene
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.comprehensiveAlarm.po.AlarmScene" >
+    insert into alarm_scene (scene_id, scene_name)
+    values (#{scene_id,jdbcType=VARCHAR}, #{scene_name,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.comprehensiveAlarm.po.AlarmScene" >
+    insert into alarm_scene
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="scene_id != null" >
+        scene_id,
+      </if>
+      <if test="scene_name != null" >
+        scene_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="scene_id != null" >
+        #{scene_id,jdbcType=VARCHAR},
+      </if>
+      <if test="scene_name != null" >
+        #{scene_name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.comprehensiveAlarm.po.AlarmSceneExample" resultType="java.lang.Integer" >
+    select count(*) from alarm_scene
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update alarm_scene
+    <set >
+      <if test="record.scene_id != null" >
+        scene_id = #{record.scene_id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scene_name != null" >
+        scene_name = #{record.scene_name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update alarm_scene
+    set scene_id = #{record.scene_id,jdbcType=VARCHAR},
+      scene_name = #{record.scene_name,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.comprehensiveAlarm.po.AlarmScene" >
+    update alarm_scene
+    <set >
+      <if test="scene_name != null" >
+        scene_name = #{scene_name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where scene_id = #{scene_id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.comprehensiveAlarm.po.AlarmScene" >
+    update alarm_scene
+    set scene_name = #{scene_name,jdbcType=VARCHAR}
+    where scene_id = #{scene_id,jdbcType=VARCHAR}
+  </update>
+</mapper>

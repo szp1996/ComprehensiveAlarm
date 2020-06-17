@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.comprehensiveAlarm.dao.AlarmBussinessMapper" >
+  <resultMap id="BaseResultMap" type="com.comprehensiveAlarm.po.AlarmBussiness" >
+    <id column="alarm_bussiness_id" property="alarm_bussiness_id" jdbcType="VARCHAR" />
+    <result column="alarm_bussiness_name" property="alarm_bussiness_name" jdbcType="VARCHAR" />
+    <result column="scene_id" property="scene_id" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    alarm_bussiness_id, alarm_bussiness_name, scene_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.comprehensiveAlarm.po.AlarmBussinessExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from alarm_bussiness
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from alarm_bussiness
+    where alarm_bussiness_id = #{alarm_bussiness_id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from alarm_bussiness
+    where alarm_bussiness_id = #{alarm_bussiness_id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.comprehensiveAlarm.po.AlarmBussinessExample" >
+    delete from alarm_bussiness
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.comprehensiveAlarm.po.AlarmBussiness" >
+    insert into alarm_bussiness (alarm_bussiness_id, alarm_bussiness_name, 
+      scene_id)
+    values (#{alarm_bussiness_id,jdbcType=VARCHAR}, #{alarm_bussiness_name,jdbcType=VARCHAR}, 
+      #{scene_id,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.comprehensiveAlarm.po.AlarmBussiness" >
+    insert into alarm_bussiness
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="alarm_bussiness_id != null" >
+        alarm_bussiness_id,
+      </if>
+      <if test="alarm_bussiness_name != null" >
+        alarm_bussiness_name,
+      </if>
+      <if test="scene_id != null" >
+        scene_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="alarm_bussiness_id != null" >
+        #{alarm_bussiness_id,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm_bussiness_name != null" >
+        #{alarm_bussiness_name,jdbcType=VARCHAR},
+      </if>
+      <if test="scene_id != null" >
+        #{scene_id,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.comprehensiveAlarm.po.AlarmBussinessExample" resultType="java.lang.Integer" >
+    select count(*) from alarm_bussiness
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update alarm_bussiness
+    <set >
+      <if test="record.alarm_bussiness_id != null" >
+        alarm_bussiness_id = #{record.alarm_bussiness_id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alarm_bussiness_name != null" >
+        alarm_bussiness_name = #{record.alarm_bussiness_name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scene_id != null" >
+        scene_id = #{record.scene_id,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update alarm_bussiness
+    set alarm_bussiness_id = #{record.alarm_bussiness_id,jdbcType=VARCHAR},
+      alarm_bussiness_name = #{record.alarm_bussiness_name,jdbcType=VARCHAR},
+      scene_id = #{record.scene_id,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.comprehensiveAlarm.po.AlarmBussiness" >
+    update alarm_bussiness
+    <set >
+      <if test="alarm_bussiness_name != null" >
+        alarm_bussiness_name = #{alarm_bussiness_name,jdbcType=VARCHAR},
+      </if>
+      <if test="scene_id != null" >
+        scene_id = #{scene_id,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where alarm_bussiness_id = #{alarm_bussiness_id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.comprehensiveAlarm.po.AlarmBussiness" >
+    update alarm_bussiness
+    set alarm_bussiness_name = #{alarm_bussiness_name,jdbcType=VARCHAR},
+      scene_id = #{scene_id,jdbcType=VARCHAR}
+    where alarm_bussiness_id = #{alarm_bussiness_id,jdbcType=VARCHAR}
+  </update>
+</mapper>
