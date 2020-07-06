@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.comprehensiveAlarm.dao.WorkorderMapper" >
+  <resultMap id="BaseResultMap" type="com.comprehensiveAlarm.po.Workorder" >
+    <id column="workorder_id" property="workorder_id" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="alarm_codes" property="alarm_codes" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="contact_person" property="contact_person" jdbcType="VARCHAR" />
+    <result column="contact_org" property="contact_org" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="feedback" property="feedback" jdbcType="VARCHAR" />
+    <result column="knowledge_id" property="knowledge_id" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    workorder_id, title, alarm_codes, type, contact_person, contact_org, status, feedback, 
+    knowledge_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.comprehensiveAlarm.po.WorkorderExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from workorder
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from workorder
+    where workorder_id = #{workorder_id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from workorder
+    where workorder_id = #{workorder_id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.comprehensiveAlarm.po.WorkorderExample" >
+    delete from workorder
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.comprehensiveAlarm.po.Workorder" >
+    insert into workorder (workorder_id, title, alarm_codes, 
+      type, contact_person, contact_org, 
+      status, feedback, knowledge_id
+      )
+    values (#{workorder_id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{alarm_codes,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{contact_person,jdbcType=VARCHAR}, #{contact_org,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{feedback,jdbcType=VARCHAR}, #{knowledge_id,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.comprehensiveAlarm.po.Workorder" >
+    insert into workorder
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="workorder_id != null" >
+        workorder_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="alarm_codes != null" >
+        alarm_codes,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="contact_person != null" >
+        contact_person,
+      </if>
+      <if test="contact_org != null" >
+        contact_org,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="feedback != null" >
+        feedback,
+      </if>
+      <if test="knowledge_id != null" >
+        knowledge_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="workorder_id != null" >
+        #{workorder_id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm_codes != null" >
+        #{alarm_codes,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="contact_person != null" >
+        #{contact_person,jdbcType=VARCHAR},
+      </if>
+      <if test="contact_org != null" >
+        #{contact_org,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="feedback != null" >
+        #{feedback,jdbcType=VARCHAR},
+      </if>
+      <if test="knowledge_id != null" >
+        #{knowledge_id,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.comprehensiveAlarm.po.WorkorderExample" resultType="java.lang.Integer" >
+    select count(*) from workorder
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update workorder
+    <set >
+      <if test="record.workorder_id != null" >
+        workorder_id = #{record.workorder_id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alarm_codes != null" >
+        alarm_codes = #{record.alarm_codes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=INTEGER},
+      </if>
+      <if test="record.contact_person != null" >
+        contact_person = #{record.contact_person,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contact_org != null" >
+        contact_org = #{record.contact_org,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.feedback != null" >
+        feedback = #{record.feedback,jdbcType=VARCHAR},
+      </if>
+      <if test="record.knowledge_id != null" >
+        knowledge_id = #{record.knowledge_id,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update workorder
+    set workorder_id = #{record.workorder_id,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR},
+      alarm_codes = #{record.alarm_codes,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=INTEGER},
+      contact_person = #{record.contact_person,jdbcType=VARCHAR},
+      contact_org = #{record.contact_org,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      feedback = #{record.feedback,jdbcType=VARCHAR},
+      knowledge_id = #{record.knowledge_id,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.comprehensiveAlarm.po.Workorder" >
+    update workorder
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="alarm_codes != null" >
+        alarm_codes = #{alarm_codes,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="contact_person != null" >
+        contact_person = #{contact_person,jdbcType=VARCHAR},
+      </if>
+      <if test="contact_org != null" >
+        contact_org = #{contact_org,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="feedback != null" >
+        feedback = #{feedback,jdbcType=VARCHAR},
+      </if>
+      <if test="knowledge_id != null" >
+        knowledge_id = #{knowledge_id,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where workorder_id = #{workorder_id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.comprehensiveAlarm.po.Workorder" >
+    update workorder
+    set title = #{title,jdbcType=VARCHAR},
+      alarm_codes = #{alarm_codes,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      contact_person = #{contact_person,jdbcType=VARCHAR},
+      contact_org = #{contact_org,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      feedback = #{feedback,jdbcType=VARCHAR},
+      knowledge_id = #{knowledge_id,jdbcType=VARCHAR}
+    where workorder_id = #{workorder_id,jdbcType=VARCHAR}
+  </update>
+</mapper>

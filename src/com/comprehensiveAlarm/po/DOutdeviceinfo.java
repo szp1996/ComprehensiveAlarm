@@ -3,373 +3,373 @@ package com.comprehensiveAlarm.po;
 import java.util.Date;
 
 public class DOutdeviceinfo {
-    private String ID;
+    private String id;
 
-    private String DEVICEID;
+    private String deviceid;
 
-    private String DEVICENAME;
+    private String devicename;
 
-    private String MANUFACTURER;
+    private String manufacturer;
 
-    private String MODEL;
+    private String model;
 
-    private String OWNER;
+    private String owner;
 
-    private String PASSWORD;
+    private String password;
 
-    private String CIVILCODE;
+    private String civilcode;
 
-    private String BLOCK;
+    private String block;
 
-    private Double LONGITUDE;
+    private Double longitude;
 
-    private Double LATITUDE;
+    private Double latitude;
 
-    private String ADDRESS;
+    private String address;
 
-    private String PARENTID;
+    private String parentid;
 
-    private Integer SAFETYWAY;
+    private Integer safetyway;
 
-    private Integer REGISTERWAY;
+    private Integer registerway;
 
-    private String CERTNUM;
+    private String certnum;
 
-    private Integer CERTIFIABLE;
+    private Integer certifiable;
 
-    private Integer ERRCODE;
+    private Integer errcode;
 
-    private Date ENDTIME;
+    private Date endtime;
 
-    private Integer SECRECY;
+    private Integer secrecy;
 
-    private String DEVICETYPE;
+    private String devicetype;
 
-    private String DESCRIPTION;
+    private String description;
 
-    private String STATUS;
+    private String status;
 
-    private String SOURCECENTER;
+    private String sourcecenter;
 
-    private String ISWITHCHILD;
+    private String iswithchild;
 
-    private String CAMERATYPE;
+    private String cameratype;
 
-    private String PTZTYPE;
+    private String ptztype;
 
-    private String POSITIONTYPE;
+    private String positiontype;
 
-    private String ROOMTYPE;
+    private String roomtype;
 
-    private String USETYPE;
+    private String usetype;
 
-    private String SUPPLYLIGHTTYPE;
+    private String supplylighttype;
 
-    private String DIRECTIONTYPE;
+    private String directiontype;
 
-    private String IP;
+    private String ip;
 
-    private String STREAMENCRYPT;
+    private String streamencrypt;
 
-    private String ISCOLLECTED;
+    private String iscollected;
 
-    private String OFFLINE_TIME;
+    private String offlineTime;
 
-    private byte[] CERTIFICATE;
+    private byte[] certificate;
 
-    public String getID() {
-        return ID;
+    public String getId() {
+        return id;
     }
 
-    public void setID(String ID) {
-        this.ID = ID == null ? null : ID.trim();
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
-    public String getDEVICEID() {
-        return DEVICEID;
+    public String getDeviceid() {
+        return deviceid;
     }
 
-    public void setDEVICEID(String DEVICEID) {
-        this.DEVICEID = DEVICEID == null ? null : DEVICEID.trim();
+    public void setDeviceid(String deviceid) {
+        this.deviceid = deviceid == null ? null : deviceid.trim();
     }
 
-    public String getDEVICENAME() {
-        return DEVICENAME;
+    public String getDevicename() {
+        return devicename;
     }
 
-    public void setDEVICENAME(String DEVICENAME) {
-        this.DEVICENAME = DEVICENAME == null ? null : DEVICENAME.trim();
+    public void setDevicename(String devicename) {
+        this.devicename = devicename == null ? null : devicename.trim();
     }
 
-    public String getMANUFACTURER() {
-        return MANUFACTURER;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
-    public void setMANUFACTURER(String MANUFACTURER) {
-        this.MANUFACTURER = MANUFACTURER == null ? null : MANUFACTURER.trim();
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer == null ? null : manufacturer.trim();
     }
 
-    public String getMODEL() {
-        return MODEL;
+    public String getModel() {
+        return model;
     }
 
-    public void setMODEL(String MODEL) {
-        this.MODEL = MODEL == null ? null : MODEL.trim();
+    public void setModel(String model) {
+        this.model = model == null ? null : model.trim();
     }
 
-    public String getOWNER() {
-        return OWNER;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setOWNER(String OWNER) {
-        this.OWNER = OWNER == null ? null : OWNER.trim();
+    public void setOwner(String owner) {
+        this.owner = owner == null ? null : owner.trim();
     }
 
-    public String getPASSWORD() {
-        return PASSWORD;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPASSWORD(String PASSWORD) {
-        this.PASSWORD = PASSWORD == null ? null : PASSWORD.trim();
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
     }
 
-    public String getCIVILCODE() {
-        return CIVILCODE;
+    public String getCivilcode() {
+        return civilcode;
     }
 
-    public void setCIVILCODE(String CIVILCODE) {
-        this.CIVILCODE = CIVILCODE == null ? null : CIVILCODE.trim();
+    public void setCivilcode(String civilcode) {
+        this.civilcode = civilcode == null ? null : civilcode.trim();
     }
 
-    public String getBLOCK() {
-        return BLOCK;
+    public String getBlock() {
+        return block;
     }
 
-    public void setBLOCK(String BLOCK) {
-        this.BLOCK = BLOCK == null ? null : BLOCK.trim();
+    public void setBlock(String block) {
+        this.block = block == null ? null : block.trim();
     }
 
-    public Double getLONGITUDE() {
-        return LONGITUDE;
+    public Double getLongitude() {
+        return longitude;
     }
 
-    public void setLONGITUDE(Double LONGITUDE) {
-        this.LONGITUDE = LONGITUDE;
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
-    public Double getLATITUDE() {
-        return LATITUDE;
+    public Double getLatitude() {
+        return latitude;
     }
 
-    public void setLATITUDE(Double LATITUDE) {
-        this.LATITUDE = LATITUDE;
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
 
-    public String getADDRESS() {
-        return ADDRESS;
+    public String getAddress() {
+        return address;
     }
 
-    public void setADDRESS(String ADDRESS) {
-        this.ADDRESS = ADDRESS == null ? null : ADDRESS.trim();
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
     }
 
-    public String getPARENTID() {
-        return PARENTID;
+    public String getParentid() {
+        return parentid;
     }
 
-    public void setPARENTID(String PARENTID) {
-        this.PARENTID = PARENTID == null ? null : PARENTID.trim();
+    public void setParentid(String parentid) {
+        this.parentid = parentid == null ? null : parentid.trim();
     }
 
-    public Integer getSAFETYWAY() {
-        return SAFETYWAY;
+    public Integer getSafetyway() {
+        return safetyway;
     }
 
-    public void setSAFETYWAY(Integer SAFETYWAY) {
-        this.SAFETYWAY = SAFETYWAY;
+    public void setSafetyway(Integer safetyway) {
+        this.safetyway = safetyway;
     }
 
-    public Integer getREGISTERWAY() {
-        return REGISTERWAY;
+    public Integer getRegisterway() {
+        return registerway;
     }
 
-    public void setREGISTERWAY(Integer REGISTERWAY) {
-        this.REGISTERWAY = REGISTERWAY;
+    public void setRegisterway(Integer registerway) {
+        this.registerway = registerway;
     }
 
-    public String getCERTNUM() {
-        return CERTNUM;
+    public String getCertnum() {
+        return certnum;
     }
 
-    public void setCERTNUM(String CERTNUM) {
-        this.CERTNUM = CERTNUM == null ? null : CERTNUM.trim();
+    public void setCertnum(String certnum) {
+        this.certnum = certnum == null ? null : certnum.trim();
     }
 
-    public Integer getCERTIFIABLE() {
-        return CERTIFIABLE;
+    public Integer getCertifiable() {
+        return certifiable;
     }
 
-    public void setCERTIFIABLE(Integer CERTIFIABLE) {
-        this.CERTIFIABLE = CERTIFIABLE;
+    public void setCertifiable(Integer certifiable) {
+        this.certifiable = certifiable;
     }
 
-    public Integer getERRCODE() {
-        return ERRCODE;
+    public Integer getErrcode() {
+        return errcode;
     }
 
-    public void setERRCODE(Integer ERRCODE) {
-        this.ERRCODE = ERRCODE;
+    public void setErrcode(Integer errcode) {
+        this.errcode = errcode;
     }
 
-    public Date getENDTIME() {
-        return ENDTIME;
+    public Date getEndtime() {
+        return endtime;
     }
 
-    public void setENDTIME(Date ENDTIME) {
-        this.ENDTIME = ENDTIME;
+    public void setEndtime(Date endtime) {
+        this.endtime = endtime;
     }
 
-    public Integer getSECRECY() {
-        return SECRECY;
+    public Integer getSecrecy() {
+        return secrecy;
     }
 
-    public void setSECRECY(Integer SECRECY) {
-        this.SECRECY = SECRECY;
+    public void setSecrecy(Integer secrecy) {
+        this.secrecy = secrecy;
     }
 
-    public String getDEVICETYPE() {
-        return DEVICETYPE;
+    public String getDevicetype() {
+        return devicetype;
     }
 
-    public void setDEVICETYPE(String DEVICETYPE) {
-        this.DEVICETYPE = DEVICETYPE == null ? null : DEVICETYPE.trim();
+    public void setDevicetype(String devicetype) {
+        this.devicetype = devicetype == null ? null : devicetype.trim();
     }
 
-    public String getDESCRIPTION() {
-        return DESCRIPTION;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDESCRIPTION(String DESCRIPTION) {
-        this.DESCRIPTION = DESCRIPTION == null ? null : DESCRIPTION.trim();
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
     }
 
-    public String getSTATUS() {
-        return STATUS;
+    public String getStatus() {
+        return status;
     }
 
-    public void setSTATUS(String STATUS) {
-        this.STATUS = STATUS == null ? null : STATUS.trim();
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
     }
 
-    public String getSOURCECENTER() {
-        return SOURCECENTER;
+    public String getSourcecenter() {
+        return sourcecenter;
     }
 
-    public void setSOURCECENTER(String SOURCECENTER) {
-        this.SOURCECENTER = SOURCECENTER == null ? null : SOURCECENTER.trim();
+    public void setSourcecenter(String sourcecenter) {
+        this.sourcecenter = sourcecenter == null ? null : sourcecenter.trim();
     }
 
-    public String getISWITHCHILD() {
-        return ISWITHCHILD;
+    public String getIswithchild() {
+        return iswithchild;
     }
 
-    public void setISWITHCHILD(String ISWITHCHILD) {
-        this.ISWITHCHILD = ISWITHCHILD == null ? null : ISWITHCHILD.trim();
+    public void setIswithchild(String iswithchild) {
+        this.iswithchild = iswithchild == null ? null : iswithchild.trim();
     }
 
-    public String getCAMERATYPE() {
-        return CAMERATYPE;
+    public String getCameratype() {
+        return cameratype;
     }
 
-    public void setCAMERATYPE(String CAMERATYPE) {
-        this.CAMERATYPE = CAMERATYPE == null ? null : CAMERATYPE.trim();
+    public void setCameratype(String cameratype) {
+        this.cameratype = cameratype == null ? null : cameratype.trim();
     }
 
-    public String getPTZTYPE() {
-        return PTZTYPE;
+    public String getPtztype() {
+        return ptztype;
     }
 
-    public void setPTZTYPE(String PTZTYPE) {
-        this.PTZTYPE = PTZTYPE == null ? null : PTZTYPE.trim();
+    public void setPtztype(String ptztype) {
+        this.ptztype = ptztype == null ? null : ptztype.trim();
     }
 
-    public String getPOSITIONTYPE() {
-        return POSITIONTYPE;
+    public String getPositiontype() {
+        return positiontype;
     }
 
-    public void setPOSITIONTYPE(String POSITIONTYPE) {
-        this.POSITIONTYPE = POSITIONTYPE == null ? null : POSITIONTYPE.trim();
+    public void setPositiontype(String positiontype) {
+        this.positiontype = positiontype == null ? null : positiontype.trim();
     }
 
-    public String getROOMTYPE() {
-        return ROOMTYPE;
+    public String getRoomtype() {
+        return roomtype;
     }
 
-    public void setROOMTYPE(String ROOMTYPE) {
-        this.ROOMTYPE = ROOMTYPE == null ? null : ROOMTYPE.trim();
+    public void setRoomtype(String roomtype) {
+        this.roomtype = roomtype == null ? null : roomtype.trim();
     }
 
-    public String getUSETYPE() {
-        return USETYPE;
+    public String getUsetype() {
+        return usetype;
     }
 
-    public void setUSETYPE(String USETYPE) {
-        this.USETYPE = USETYPE == null ? null : USETYPE.trim();
+    public void setUsetype(String usetype) {
+        this.usetype = usetype == null ? null : usetype.trim();
     }
 
-    public String getSUPPLYLIGHTTYPE() {
-        return SUPPLYLIGHTTYPE;
+    public String getSupplylighttype() {
+        return supplylighttype;
     }
 
-    public void setSUPPLYLIGHTTYPE(String SUPPLYLIGHTTYPE) {
-        this.SUPPLYLIGHTTYPE = SUPPLYLIGHTTYPE == null ? null : SUPPLYLIGHTTYPE.trim();
+    public void setSupplylighttype(String supplylighttype) {
+        this.supplylighttype = supplylighttype == null ? null : supplylighttype.trim();
     }
 
-    public String getDIRECTIONTYPE() {
-        return DIRECTIONTYPE;
+    public String getDirectiontype() {
+        return directiontype;
     }
 
-    public void setDIRECTIONTYPE(String DIRECTIONTYPE) {
-        this.DIRECTIONTYPE = DIRECTIONTYPE == null ? null : DIRECTIONTYPE.trim();
+    public void setDirectiontype(String directiontype) {
+        this.directiontype = directiontype == null ? null : directiontype.trim();
     }
 
-    public String getIP() {
-        return IP;
+    public String getIp() {
+        return ip;
     }
 
-    public void setIP(String IP) {
-        this.IP = IP == null ? null : IP.trim();
+    public void setIp(String ip) {
+        this.ip = ip == null ? null : ip.trim();
     }
 
-    public String getSTREAMENCRYPT() {
-        return STREAMENCRYPT;
+    public String getStreamencrypt() {
+        return streamencrypt;
     }
 
-    public void setSTREAMENCRYPT(String STREAMENCRYPT) {
-        this.STREAMENCRYPT = STREAMENCRYPT == null ? null : STREAMENCRYPT.trim();
+    public void setStreamencrypt(String streamencrypt) {
+        this.streamencrypt = streamencrypt == null ? null : streamencrypt.trim();
     }
 
-    public String getISCOLLECTED() {
-        return ISCOLLECTED;
+    public String getIscollected() {
+        return iscollected;
     }
 
-    public void setISCOLLECTED(String ISCOLLECTED) {
-        this.ISCOLLECTED = ISCOLLECTED == null ? null : ISCOLLECTED.trim();
+    public void setIscollected(String iscollected) {
+        this.iscollected = iscollected == null ? null : iscollected.trim();
     }
 
-    public String getOFFLINE_TIME() {
-        return OFFLINE_TIME;
+    public String getOfflineTime() {
+        return offlineTime;
     }
 
-    public void setOFFLINE_TIME(String OFFLINE_TIME) {
-        this.OFFLINE_TIME = OFFLINE_TIME == null ? null : OFFLINE_TIME.trim();
+    public void setOfflineTime(String offlineTime) {
+        this.offlineTime = offlineTime == null ? null : offlineTime.trim();
     }
 
-    public byte[] getCERTIFICATE() {
-        return CERTIFICATE;
+    public byte[] getCertificate() {
+        return certificate;
     }
 
-    public void setCERTIFICATE(byte[] CERTIFICATE) {
-        this.CERTIFICATE = CERTIFICATE;
+    public void setCertificate(byte[] certificate) {
+        this.certificate = certificate;
     }
 }

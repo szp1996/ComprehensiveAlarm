@@ -15,6 +15,8 @@ public class AlarmCode {
 
     private String scene_id;
 
+    private String threshold;
+
     public String getAlarm_code_id() {
         return alarm_code_id;
     }
@@ -69,5 +71,13 @@ public class AlarmCode {
 
     public void setScene_id(String scene_id) {
         this.scene_id = scene_id == null ? null : scene_id.trim();
+    }
+
+    public String getThreshold() {
+        return threshold;
+    }
+
+    public void setThreshold(String threshold) {
+        this.threshold = threshold == null ? null : threshold.trim();
     }
 }

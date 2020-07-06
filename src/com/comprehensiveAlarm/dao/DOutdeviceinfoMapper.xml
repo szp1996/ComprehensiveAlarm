@@ -2,45 +2,45 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.comprehensiveAlarm.dao.DOutdeviceinfoMapper" >
   <resultMap id="BaseResultMap" type="com.comprehensiveAlarm.po.DOutdeviceinfo" >
-    <result column="ID" property="ID" jdbcType="VARCHAR" />
-    <result column="DEVICEID" property="DEVICEID" jdbcType="VARCHAR" />
-    <result column="DEVICENAME" property="DEVICENAME" jdbcType="VARCHAR" />
-    <result column="MANUFACTURER" property="MANUFACTURER" jdbcType="VARCHAR" />
-    <result column="MODEL" property="MODEL" jdbcType="VARCHAR" />
-    <result column="OWNER" property="OWNER" jdbcType="VARCHAR" />
-    <result column="PASSWORD" property="PASSWORD" jdbcType="VARCHAR" />
-    <result column="CIVILCODE" property="CIVILCODE" jdbcType="VARCHAR" />
-    <result column="BLOCK" property="BLOCK" jdbcType="VARCHAR" />
-    <result column="LONGITUDE" property="LONGITUDE" jdbcType="DOUBLE" />
-    <result column="LATITUDE" property="LATITUDE" jdbcType="DOUBLE" />
-    <result column="ADDRESS" property="ADDRESS" jdbcType="VARCHAR" />
-    <result column="PARENTID" property="PARENTID" jdbcType="VARCHAR" />
-    <result column="SAFETYWAY" property="SAFETYWAY" jdbcType="INTEGER" />
-    <result column="REGISTERWAY" property="REGISTERWAY" jdbcType="INTEGER" />
-    <result column="CERTNUM" property="CERTNUM" jdbcType="VARCHAR" />
-    <result column="CERTIFIABLE" property="CERTIFIABLE" jdbcType="INTEGER" />
-    <result column="ERRCODE" property="ERRCODE" jdbcType="INTEGER" />
-    <result column="ENDTIME" property="ENDTIME" jdbcType="TIMESTAMP" />
-    <result column="SECRECY" property="SECRECY" jdbcType="INTEGER" />
-    <result column="DEVICETYPE" property="DEVICETYPE" jdbcType="VARCHAR" />
-    <result column="DESCRIPTION" property="DESCRIPTION" jdbcType="VARCHAR" />
-    <result column="STATUS" property="STATUS" jdbcType="VARCHAR" />
-    <result column="SOURCECENTER" property="SOURCECENTER" jdbcType="VARCHAR" />
-    <result column="ISWITHCHILD" property="ISWITHCHILD" jdbcType="VARCHAR" />
-    <result column="CAMERATYPE" property="CAMERATYPE" jdbcType="VARCHAR" />
-    <result column="PTZTYPE" property="PTZTYPE" jdbcType="VARCHAR" />
-    <result column="POSITIONTYPE" property="POSITIONTYPE" jdbcType="VARCHAR" />
-    <result column="ROOMTYPE" property="ROOMTYPE" jdbcType="VARCHAR" />
-    <result column="USETYPE" property="USETYPE" jdbcType="VARCHAR" />
-    <result column="SUPPLYLIGHTTYPE" property="SUPPLYLIGHTTYPE" jdbcType="VARCHAR" />
-    <result column="DIRECTIONTYPE" property="DIRECTIONTYPE" jdbcType="VARCHAR" />
-    <result column="IP" property="IP" jdbcType="VARCHAR" />
-    <result column="STREAMENCRYPT" property="STREAMENCRYPT" jdbcType="VARCHAR" />
-    <result column="ISCOLLECTED" property="ISCOLLECTED" jdbcType="VARCHAR" />
-    <result column="OFFLINE_TIME" property="OFFLINE_TIME" jdbcType="VARCHAR" />
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="DEVICEID" property="deviceid" jdbcType="VARCHAR" />
+    <result column="DEVICENAME" property="devicename" jdbcType="VARCHAR" />
+    <result column="MANUFACTURER" property="manufacturer" jdbcType="VARCHAR" />
+    <result column="MODEL" property="model" jdbcType="VARCHAR" />
+    <result column="OWNER" property="owner" jdbcType="VARCHAR" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="CIVILCODE" property="civilcode" jdbcType="VARCHAR" />
+    <result column="BLOCK" property="block" jdbcType="VARCHAR" />
+    <result column="LONGITUDE" property="longitude" jdbcType="DOUBLE" />
+    <result column="LATITUDE" property="latitude" jdbcType="DOUBLE" />
+    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="PARENTID" property="parentid" jdbcType="VARCHAR" />
+    <result column="SAFETYWAY" property="safetyway" jdbcType="INTEGER" />
+    <result column="REGISTERWAY" property="registerway" jdbcType="INTEGER" />
+    <result column="CERTNUM" property="certnum" jdbcType="VARCHAR" />
+    <result column="CERTIFIABLE" property="certifiable" jdbcType="INTEGER" />
+    <result column="ERRCODE" property="errcode" jdbcType="INTEGER" />
+    <result column="ENDTIME" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="SECRECY" property="secrecy" jdbcType="INTEGER" />
+    <result column="DEVICETYPE" property="devicetype" jdbcType="VARCHAR" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="SOURCECENTER" property="sourcecenter" jdbcType="VARCHAR" />
+    <result column="ISWITHCHILD" property="iswithchild" jdbcType="VARCHAR" />
+    <result column="CAMERATYPE" property="cameratype" jdbcType="VARCHAR" />
+    <result column="PTZTYPE" property="ptztype" jdbcType="VARCHAR" />
+    <result column="POSITIONTYPE" property="positiontype" jdbcType="VARCHAR" />
+    <result column="ROOMTYPE" property="roomtype" jdbcType="VARCHAR" />
+    <result column="USETYPE" property="usetype" jdbcType="VARCHAR" />
+    <result column="SUPPLYLIGHTTYPE" property="supplylighttype" jdbcType="VARCHAR" />
+    <result column="DIRECTIONTYPE" property="directiontype" jdbcType="VARCHAR" />
+    <result column="IP" property="ip" jdbcType="VARCHAR" />
+    <result column="STREAMENCRYPT" property="streamencrypt" jdbcType="VARCHAR" />
+    <result column="ISCOLLECTED" property="iscollected" jdbcType="VARCHAR" />
+    <result column="OFFLINE_TIME" property="offlineTime" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.comprehensiveAlarm.po.DOutdeviceinfo" extends="BaseResultMap" >
-    <result column="CERTIFICATE" property="CERTIFICATE" jdbcType="LONGVARBINARY" />
+    <result column="CERTIFICATE" property="certificate" jdbcType="LONGVARBINARY" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -160,246 +160,246 @@
       SUPPLYLIGHTTYPE, DIRECTIONTYPE, IP, 
       STREAMENCRYPT, ISCOLLECTED, OFFLINE_TIME, 
       CERTIFICATE)
-    values (#{ID,jdbcType=VARCHAR}, #{DEVICEID,jdbcType=VARCHAR}, #{DEVICENAME,jdbcType=VARCHAR}, 
-      #{MANUFACTURER,jdbcType=VARCHAR}, #{MODEL,jdbcType=VARCHAR}, #{OWNER,jdbcType=VARCHAR}, 
-      #{PASSWORD,jdbcType=VARCHAR}, #{CIVILCODE,jdbcType=VARCHAR}, #{BLOCK,jdbcType=VARCHAR}, 
-      #{LONGITUDE,jdbcType=DOUBLE}, #{LATITUDE,jdbcType=DOUBLE}, #{ADDRESS,jdbcType=VARCHAR}, 
-      #{PARENTID,jdbcType=VARCHAR}, #{SAFETYWAY,jdbcType=INTEGER}, #{REGISTERWAY,jdbcType=INTEGER}, 
-      #{CERTNUM,jdbcType=VARCHAR}, #{CERTIFIABLE,jdbcType=INTEGER}, #{ERRCODE,jdbcType=INTEGER}, 
-      #{ENDTIME,jdbcType=TIMESTAMP}, #{SECRECY,jdbcType=INTEGER}, #{DEVICETYPE,jdbcType=VARCHAR}, 
-      #{DESCRIPTION,jdbcType=VARCHAR}, #{STATUS,jdbcType=VARCHAR}, #{SOURCECENTER,jdbcType=VARCHAR}, 
-      #{ISWITHCHILD,jdbcType=VARCHAR}, #{CAMERATYPE,jdbcType=VARCHAR}, #{PTZTYPE,jdbcType=VARCHAR}, 
-      #{POSITIONTYPE,jdbcType=VARCHAR}, #{ROOMTYPE,jdbcType=VARCHAR}, #{USETYPE,jdbcType=VARCHAR}, 
-      #{SUPPLYLIGHTTYPE,jdbcType=VARCHAR}, #{DIRECTIONTYPE,jdbcType=VARCHAR}, #{IP,jdbcType=VARCHAR}, 
-      #{STREAMENCRYPT,jdbcType=VARCHAR}, #{ISCOLLECTED,jdbcType=VARCHAR}, #{OFFLINE_TIME,jdbcType=VARCHAR}, 
-      #{CERTIFICATE,jdbcType=LONGVARBINARY})
+    values (#{id,jdbcType=VARCHAR}, #{deviceid,jdbcType=VARCHAR}, #{devicename,jdbcType=VARCHAR}, 
+      #{manufacturer,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{owner,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{civilcode,jdbcType=VARCHAR}, #{block,jdbcType=VARCHAR}, 
+      #{longitude,jdbcType=DOUBLE}, #{latitude,jdbcType=DOUBLE}, #{address,jdbcType=VARCHAR}, 
+      #{parentid,jdbcType=VARCHAR}, #{safetyway,jdbcType=INTEGER}, #{registerway,jdbcType=INTEGER}, 
+      #{certnum,jdbcType=VARCHAR}, #{certifiable,jdbcType=INTEGER}, #{errcode,jdbcType=INTEGER}, 
+      #{endtime,jdbcType=TIMESTAMP}, #{secrecy,jdbcType=INTEGER}, #{devicetype,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{sourcecenter,jdbcType=VARCHAR}, 
+      #{iswithchild,jdbcType=VARCHAR}, #{cameratype,jdbcType=VARCHAR}, #{ptztype,jdbcType=VARCHAR}, 
+      #{positiontype,jdbcType=VARCHAR}, #{roomtype,jdbcType=VARCHAR}, #{usetype,jdbcType=VARCHAR}, 
+      #{supplylighttype,jdbcType=VARCHAR}, #{directiontype,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
+      #{streamencrypt,jdbcType=VARCHAR}, #{iscollected,jdbcType=VARCHAR}, #{offlineTime,jdbcType=VARCHAR}, 
+      #{certificate,jdbcType=LONGVARBINARY})
   </insert>
   <insert id="insertSelective" parameterType="com.comprehensiveAlarm.po.DOutdeviceinfo" >
     insert into d_outdeviceinfo
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="ID != null" >
+      <if test="id != null" >
         ID,
       </if>
-      <if test="DEVICEID != null" >
+      <if test="deviceid != null" >
         DEVICEID,
       </if>
-      <if test="DEVICENAME != null" >
+      <if test="devicename != null" >
         DEVICENAME,
       </if>
-      <if test="MANUFACTURER != null" >
+      <if test="manufacturer != null" >
         MANUFACTURER,
       </if>
-      <if test="MODEL != null" >
+      <if test="model != null" >
         MODEL,
       </if>
-      <if test="OWNER != null" >
+      <if test="owner != null" >
         OWNER,
       </if>
-      <if test="PASSWORD != null" >
+      <if test="password != null" >
         PASSWORD,
       </if>
-      <if test="CIVILCODE != null" >
+      <if test="civilcode != null" >
         CIVILCODE,
       </if>
-      <if test="BLOCK != null" >
+      <if test="block != null" >
         BLOCK,
       </if>
-      <if test="LONGITUDE != null" >
+      <if test="longitude != null" >
         LONGITUDE,
       </if>
-      <if test="LATITUDE != null" >
+      <if test="latitude != null" >
         LATITUDE,
       </if>
-      <if test="ADDRESS != null" >
+      <if test="address != null" >
         ADDRESS,
       </if>
-      <if test="PARENTID != null" >
+      <if test="parentid != null" >
         PARENTID,
       </if>
-      <if test="SAFETYWAY != null" >
+      <if test="safetyway != null" >
         SAFETYWAY,
       </if>
-      <if test="REGISTERWAY != null" >
+      <if test="registerway != null" >
         REGISTERWAY,
       </if>
-      <if test="CERTNUM != null" >
+      <if test="certnum != null" >
         CERTNUM,
       </if>
-      <if test="CERTIFIABLE != null" >
+      <if test="certifiable != null" >
         CERTIFIABLE,
       </if>
-      <if test="ERRCODE != null" >
+      <if test="errcode != null" >
         ERRCODE,
       </if>
-      <if test="ENDTIME != null" >
+      <if test="endtime != null" >
         ENDTIME,
       </if>
-      <if test="SECRECY != null" >
+      <if test="secrecy != null" >
         SECRECY,
       </if>
-      <if test="DEVICETYPE != null" >
+      <if test="devicetype != null" >
         DEVICETYPE,
       </if>
-      <if test="DESCRIPTION != null" >
+      <if test="description != null" >
         DESCRIPTION,
       </if>
-      <if test="STATUS != null" >
+      <if test="status != null" >
         STATUS,
       </if>
-      <if test="SOURCECENTER != null" >
+      <if test="sourcecenter != null" >
         SOURCECENTER,
       </if>
-      <if test="ISWITHCHILD != null" >
+      <if test="iswithchild != null" >
         ISWITHCHILD,
       </if>
-      <if test="CAMERATYPE != null" >
+      <if test="cameratype != null" >
         CAMERATYPE,
       </if>
-      <if test="PTZTYPE != null" >
+      <if test="ptztype != null" >
         PTZTYPE,
       </if>
-      <if test="POSITIONTYPE != null" >
+      <if test="positiontype != null" >
         POSITIONTYPE,
       </if>
-      <if test="ROOMTYPE != null" >
+      <if test="roomtype != null" >
         ROOMTYPE,
       </if>
-      <if test="USETYPE != null" >
+      <if test="usetype != null" >
         USETYPE,
       </if>
-      <if test="SUPPLYLIGHTTYPE != null" >
+      <if test="supplylighttype != null" >
         SUPPLYLIGHTTYPE,
       </if>
-      <if test="DIRECTIONTYPE != null" >
+      <if test="directiontype != null" >
         DIRECTIONTYPE,
       </if>
-      <if test="IP != null" >
+      <if test="ip != null" >
         IP,
       </if>
-      <if test="STREAMENCRYPT != null" >
+      <if test="streamencrypt != null" >
         STREAMENCRYPT,
       </if>
-      <if test="ISCOLLECTED != null" >
+      <if test="iscollected != null" >
         ISCOLLECTED,
       </if>
-      <if test="OFFLINE_TIME != null" >
+      <if test="offlineTime != null" >
         OFFLINE_TIME,
       </if>
-      <if test="CERTIFICATE != null" >
+      <if test="certificate != null" >
         CERTIFICATE,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="ID != null" >
-        #{ID,jdbcType=VARCHAR},
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
       </if>
-      <if test="DEVICEID != null" >
-        #{DEVICEID,jdbcType=VARCHAR},
+      <if test="deviceid != null" >
+        #{deviceid,jdbcType=VARCHAR},
       </if>
-      <if test="DEVICENAME != null" >
-        #{DEVICENAME,jdbcType=VARCHAR},
+      <if test="devicename != null" >
+        #{devicename,jdbcType=VARCHAR},
       </if>
-      <if test="MANUFACTURER != null" >
-        #{MANUFACTURER,jdbcType=VARCHAR},
+      <if test="manufacturer != null" >
+        #{manufacturer,jdbcType=VARCHAR},
       </if>
-      <if test="MODEL != null" >
-        #{MODEL,jdbcType=VARCHAR},
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
       </if>
-      <if test="OWNER != null" >
-        #{OWNER,jdbcType=VARCHAR},
+      <if test="owner != null" >
+        #{owner,jdbcType=VARCHAR},
       </if>
-      <if test="PASSWORD != null" >
-        #{PASSWORD,jdbcType=VARCHAR},
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
       </if>
-      <if test="CIVILCODE != null" >
-        #{CIVILCODE,jdbcType=VARCHAR},
+      <if test="civilcode != null" >
+        #{civilcode,jdbcType=VARCHAR},
       </if>
-      <if test="BLOCK != null" >
-        #{BLOCK,jdbcType=VARCHAR},
+      <if test="block != null" >
+        #{block,jdbcType=VARCHAR},
       </if>
-      <if test="LONGITUDE != null" >
-        #{LONGITUDE,jdbcType=DOUBLE},
+      <if test="longitude != null" >
+        #{longitude,jdbcType=DOUBLE},
       </if>
-      <if test="LATITUDE != null" >
-        #{LATITUDE,jdbcType=DOUBLE},
+      <if test="latitude != null" >
+        #{latitude,jdbcType=DOUBLE},
       </if>
-      <if test="ADDRESS != null" >
-        #{ADDRESS,jdbcType=VARCHAR},
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
       </if>
-      <if test="PARENTID != null" >
-        #{PARENTID,jdbcType=VARCHAR},
+      <if test="parentid != null" >
+        #{parentid,jdbcType=VARCHAR},
       </if>
-      <if test="SAFETYWAY != null" >
-        #{SAFETYWAY,jdbcType=INTEGER},
+      <if test="safetyway != null" >
+        #{safetyway,jdbcType=INTEGER},
       </if>
-      <if test="REGISTERWAY != null" >
-        #{REGISTERWAY,jdbcType=INTEGER},
+      <if test="registerway != null" >
+        #{registerway,jdbcType=INTEGER},
       </if>
-      <if test="CERTNUM != null" >
-        #{CERTNUM,jdbcType=VARCHAR},
+      <if test="certnum != null" >
+        #{certnum,jdbcType=VARCHAR},
       </if>
-      <if test="CERTIFIABLE != null" >
-        #{CERTIFIABLE,jdbcType=INTEGER},
+      <if test="certifiable != null" >
+        #{certifiable,jdbcType=INTEGER},
       </if>
-      <if test="ERRCODE != null" >
-        #{ERRCODE,jdbcType=INTEGER},
+      <if test="errcode != null" >
+        #{errcode,jdbcType=INTEGER},
       </if>
-      <if test="ENDTIME != null" >
-        #{ENDTIME,jdbcType=TIMESTAMP},
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="SECRECY != null" >
-        #{SECRECY,jdbcType=INTEGER},
+      <if test="secrecy != null" >
+        #{secrecy,jdbcType=INTEGER},
       </if>
-      <if test="DEVICETYPE != null" >
-        #{DEVICETYPE,jdbcType=VARCHAR},
+      <if test="devicetype != null" >
+        #{devicetype,jdbcType=VARCHAR},
       </if>
-      <if test="DESCRIPTION != null" >
-        #{DESCRIPTION,jdbcType=VARCHAR},
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
       </if>
-      <if test="STATUS != null" >
-        #{STATUS,jdbcType=VARCHAR},
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
       </if>
-      <if test="SOURCECENTER != null" >
-        #{SOURCECENTER,jdbcType=VARCHAR},
+      <if test="sourcecenter != null" >
+        #{sourcecenter,jdbcType=VARCHAR},
       </if>
-      <if test="ISWITHCHILD != null" >
-        #{ISWITHCHILD,jdbcType=VARCHAR},
+      <if test="iswithchild != null" >
+        #{iswithchild,jdbcType=VARCHAR},
       </if>
-      <if test="CAMERATYPE != null" >
-        #{CAMERATYPE,jdbcType=VARCHAR},
+      <if test="cameratype != null" >
+        #{cameratype,jdbcType=VARCHAR},
       </if>
-      <if test="PTZTYPE != null" >
-        #{PTZTYPE,jdbcType=VARCHAR},
+      <if test="ptztype != null" >
+        #{ptztype,jdbcType=VARCHAR},
       </if>
-      <if test="POSITIONTYPE != null" >
-        #{POSITIONTYPE,jdbcType=VARCHAR},
+      <if test="positiontype != null" >
+        #{positiontype,jdbcType=VARCHAR},
       </if>
-      <if test="ROOMTYPE != null" >
-        #{ROOMTYPE,jdbcType=VARCHAR},
+      <if test="roomtype != null" >
+        #{roomtype,jdbcType=VARCHAR},
       </if>
-      <if test="USETYPE != null" >
-        #{USETYPE,jdbcType=VARCHAR},
+      <if test="usetype != null" >
+        #{usetype,jdbcType=VARCHAR},
       </if>
-      <if test="SUPPLYLIGHTTYPE != null" >
-        #{SUPPLYLIGHTTYPE,jdbcType=VARCHAR},
+      <if test="supplylighttype != null" >
+        #{supplylighttype,jdbcType=VARCHAR},
       </if>
-      <if test="DIRECTIONTYPE != null" >
-        #{DIRECTIONTYPE,jdbcType=VARCHAR},
+      <if test="directiontype != null" >
+        #{directiontype,jdbcType=VARCHAR},
       </if>
-      <if test="IP != null" >
-        #{IP,jdbcType=VARCHAR},
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
       </if>
-      <if test="STREAMENCRYPT != null" >
-        #{STREAMENCRYPT,jdbcType=VARCHAR},
+      <if test="streamencrypt != null" >
+        #{streamencrypt,jdbcType=VARCHAR},
       </if>
-      <if test="ISCOLLECTED != null" >
-        #{ISCOLLECTED,jdbcType=VARCHAR},
+      <if test="iscollected != null" >
+        #{iscollected,jdbcType=VARCHAR},
       </if>
-      <if test="OFFLINE_TIME != null" >
-        #{OFFLINE_TIME,jdbcType=VARCHAR},
+      <if test="offlineTime != null" >
+        #{offlineTime,jdbcType=VARCHAR},
       </if>
-      <if test="CERTIFICATE != null" >
-        #{CERTIFICATE,jdbcType=LONGVARBINARY},
+      <if test="certificate != null" >
+        #{certificate,jdbcType=LONGVARBINARY},
       </if>
     </trim>
   </insert>
@@ -412,116 +412,116 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update d_outdeviceinfo
     <set >
-      <if test="record.ID != null" >
-        ID = #{record.ID,jdbcType=VARCHAR},
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.DEVICEID != null" >
-        DEVICEID = #{record.DEVICEID,jdbcType=VARCHAR},
+      <if test="record.deviceid != null" >
+        DEVICEID = #{record.deviceid,jdbcType=VARCHAR},
       </if>
-      <if test="record.DEVICENAME != null" >
-        DEVICENAME = #{record.DEVICENAME,jdbcType=VARCHAR},
+      <if test="record.devicename != null" >
+        DEVICENAME = #{record.devicename,jdbcType=VARCHAR},
       </if>
-      <if test="record.MANUFACTURER != null" >
-        MANUFACTURER = #{record.MANUFACTURER,jdbcType=VARCHAR},
+      <if test="record.manufacturer != null" >
+        MANUFACTURER = #{record.manufacturer,jdbcType=VARCHAR},
       </if>
-      <if test="record.MODEL != null" >
-        MODEL = #{record.MODEL,jdbcType=VARCHAR},
+      <if test="record.model != null" >
+        MODEL = #{record.model,jdbcType=VARCHAR},
       </if>
-      <if test="record.OWNER != null" >
-        OWNER = #{record.OWNER,jdbcType=VARCHAR},
+      <if test="record.owner != null" >
+        OWNER = #{record.owner,jdbcType=VARCHAR},
       </if>
-      <if test="record.PASSWORD != null" >
-        PASSWORD = #{record.PASSWORD,jdbcType=VARCHAR},
+      <if test="record.password != null" >
+        PASSWORD = #{record.password,jdbcType=VARCHAR},
       </if>
-      <if test="record.CIVILCODE != null" >
-        CIVILCODE = #{record.CIVILCODE,jdbcType=VARCHAR},
+      <if test="record.civilcode != null" >
+        CIVILCODE = #{record.civilcode,jdbcType=VARCHAR},
       </if>
-      <if test="record.BLOCK != null" >
-        BLOCK = #{record.BLOCK,jdbcType=VARCHAR},
+      <if test="record.block != null" >
+        BLOCK = #{record.block,jdbcType=VARCHAR},
       </if>
-      <if test="record.LONGITUDE != null" >
-        LONGITUDE = #{record.LONGITUDE,jdbcType=DOUBLE},
+      <if test="record.longitude != null" >
+        LONGITUDE = #{record.longitude,jdbcType=DOUBLE},
       </if>
-      <if test="record.LATITUDE != null" >
-        LATITUDE = #{record.LATITUDE,jdbcType=DOUBLE},
+      <if test="record.latitude != null" >
+        LATITUDE = #{record.latitude,jdbcType=DOUBLE},
       </if>
-      <if test="record.ADDRESS != null" >
-        ADDRESS = #{record.ADDRESS,jdbcType=VARCHAR},
+      <if test="record.address != null" >
+        ADDRESS = #{record.address,jdbcType=VARCHAR},
       </if>
-      <if test="record.PARENTID != null" >
-        PARENTID = #{record.PARENTID,jdbcType=VARCHAR},
+      <if test="record.parentid != null" >
+        PARENTID = #{record.parentid,jdbcType=VARCHAR},
       </if>
-      <if test="record.SAFETYWAY != null" >
-        SAFETYWAY = #{record.SAFETYWAY,jdbcType=INTEGER},
+      <if test="record.safetyway != null" >
+        SAFETYWAY = #{record.safetyway,jdbcType=INTEGER},
       </if>
-      <if test="record.REGISTERWAY != null" >
-        REGISTERWAY = #{record.REGISTERWAY,jdbcType=INTEGER},
+      <if test="record.registerway != null" >
+        REGISTERWAY = #{record.registerway,jdbcType=INTEGER},
       </if>
-      <if test="record.CERTNUM != null" >
-        CERTNUM = #{record.CERTNUM,jdbcType=VARCHAR},
+      <if test="record.certnum != null" >
+        CERTNUM = #{record.certnum,jdbcType=VARCHAR},
       </if>
-      <if test="record.CERTIFIABLE != null" >
-        CERTIFIABLE = #{record.CERTIFIABLE,jdbcType=INTEGER},
+      <if test="record.certifiable != null" >
+        CERTIFIABLE = #{record.certifiable,jdbcType=INTEGER},
       </if>
-      <if test="record.ERRCODE != null" >
-        ERRCODE = #{record.ERRCODE,jdbcType=INTEGER},
+      <if test="record.errcode != null" >
+        ERRCODE = #{record.errcode,jdbcType=INTEGER},
       </if>
-      <if test="record.ENDTIME != null" >
-        ENDTIME = #{record.ENDTIME,jdbcType=TIMESTAMP},
+      <if test="record.endtime != null" >
+        ENDTIME = #{record.endtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.SECRECY != null" >
-        SECRECY = #{record.SECRECY,jdbcType=INTEGER},
+      <if test="record.secrecy != null" >
+        SECRECY = #{record.secrecy,jdbcType=INTEGER},
       </if>
-      <if test="record.DEVICETYPE != null" >
-        DEVICETYPE = #{record.DEVICETYPE,jdbcType=VARCHAR},
+      <if test="record.devicetype != null" >
+        DEVICETYPE = #{record.devicetype,jdbcType=VARCHAR},
       </if>
-      <if test="record.DESCRIPTION != null" >
-        DESCRIPTION = #{record.DESCRIPTION,jdbcType=VARCHAR},
+      <if test="record.description != null" >
+        DESCRIPTION = #{record.description,jdbcType=VARCHAR},
       </if>
-      <if test="record.STATUS != null" >
-        STATUS = #{record.STATUS,jdbcType=VARCHAR},
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=VARCHAR},
       </if>
-      <if test="record.SOURCECENTER != null" >
-        SOURCECENTER = #{record.SOURCECENTER,jdbcType=VARCHAR},
+      <if test="record.sourcecenter != null" >
+        SOURCECENTER = #{record.sourcecenter,jdbcType=VARCHAR},
       </if>
-      <if test="record.ISWITHCHILD != null" >
-        ISWITHCHILD = #{record.ISWITHCHILD,jdbcType=VARCHAR},
+      <if test="record.iswithchild != null" >
+        ISWITHCHILD = #{record.iswithchild,jdbcType=VARCHAR},
       </if>
-      <if test="record.CAMERATYPE != null" >
-        CAMERATYPE = #{record.CAMERATYPE,jdbcType=VARCHAR},
+      <if test="record.cameratype != null" >
+        CAMERATYPE = #{record.cameratype,jdbcType=VARCHAR},
       </if>
-      <if test="record.PTZTYPE != null" >
-        PTZTYPE = #{record.PTZTYPE,jdbcType=VARCHAR},
+      <if test="record.ptztype != null" >
+        PTZTYPE = #{record.ptztype,jdbcType=VARCHAR},
       </if>
-      <if test="record.POSITIONTYPE != null" >
-        POSITIONTYPE = #{record.POSITIONTYPE,jdbcType=VARCHAR},
+      <if test="record.positiontype != null" >
+        POSITIONTYPE = #{record.positiontype,jdbcType=VARCHAR},
       </if>
-      <if test="record.ROOMTYPE != null" >
-        ROOMTYPE = #{record.ROOMTYPE,jdbcType=VARCHAR},
+      <if test="record.roomtype != null" >
+        ROOMTYPE = #{record.roomtype,jdbcType=VARCHAR},
       </if>
-      <if test="record.USETYPE != null" >
-        USETYPE = #{record.USETYPE,jdbcType=VARCHAR},
+      <if test="record.usetype != null" >
+        USETYPE = #{record.usetype,jdbcType=VARCHAR},
       </if>
-      <if test="record.SUPPLYLIGHTTYPE != null" >
-        SUPPLYLIGHTTYPE = #{record.SUPPLYLIGHTTYPE,jdbcType=VARCHAR},
+      <if test="record.supplylighttype != null" >
+        SUPPLYLIGHTTYPE = #{record.supplylighttype,jdbcType=VARCHAR},
       </if>
-      <if test="record.DIRECTIONTYPE != null" >
-        DIRECTIONTYPE = #{record.DIRECTIONTYPE,jdbcType=VARCHAR},
+      <if test="record.directiontype != null" >
+        DIRECTIONTYPE = #{record.directiontype,jdbcType=VARCHAR},
       </if>
-      <if test="record.IP != null" >
-        IP = #{record.IP,jdbcType=VARCHAR},
+      <if test="record.ip != null" >
+        IP = #{record.ip,jdbcType=VARCHAR},
       </if>
-      <if test="record.STREAMENCRYPT != null" >
-        STREAMENCRYPT = #{record.STREAMENCRYPT,jdbcType=VARCHAR},
+      <if test="record.streamencrypt != null" >
+        STREAMENCRYPT = #{record.streamencrypt,jdbcType=VARCHAR},
       </if>
-      <if test="record.ISCOLLECTED != null" >
-        ISCOLLECTED = #{record.ISCOLLECTED,jdbcType=VARCHAR},
+      <if test="record.iscollected != null" >
+        ISCOLLECTED = #{record.iscollected,jdbcType=VARCHAR},
       </if>
-      <if test="record.OFFLINE_TIME != null" >
-        OFFLINE_TIME = #{record.OFFLINE_TIME,jdbcType=VARCHAR},
+      <if test="record.offlineTime != null" >
+        OFFLINE_TIME = #{record.offlineTime,jdbcType=VARCHAR},
       </if>
-      <if test="record.CERTIFICATE != null" >
-        CERTIFICATE = #{record.CERTIFICATE,jdbcType=LONGVARBINARY},
+      <if test="record.certificate != null" >
+        CERTIFICATE = #{record.certificate,jdbcType=LONGVARBINARY},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -530,85 +530,85 @@
   </update>
   <update id="updateByExampleWithBLOBs" parameterType="map" >
     update d_outdeviceinfo
-    set ID = #{record.ID,jdbcType=VARCHAR},
-      DEVICEID = #{record.DEVICEID,jdbcType=VARCHAR},
-      DEVICENAME = #{record.DEVICENAME,jdbcType=VARCHAR},
-      MANUFACTURER = #{record.MANUFACTURER,jdbcType=VARCHAR},
-      MODEL = #{record.MODEL,jdbcType=VARCHAR},
-      OWNER = #{record.OWNER,jdbcType=VARCHAR},
-      PASSWORD = #{record.PASSWORD,jdbcType=VARCHAR},
-      CIVILCODE = #{record.CIVILCODE,jdbcType=VARCHAR},
-      BLOCK = #{record.BLOCK,jdbcType=VARCHAR},
-      LONGITUDE = #{record.LONGITUDE,jdbcType=DOUBLE},
-      LATITUDE = #{record.LATITUDE,jdbcType=DOUBLE},
-      ADDRESS = #{record.ADDRESS,jdbcType=VARCHAR},
-      PARENTID = #{record.PARENTID,jdbcType=VARCHAR},
-      SAFETYWAY = #{record.SAFETYWAY,jdbcType=INTEGER},
-      REGISTERWAY = #{record.REGISTERWAY,jdbcType=INTEGER},
-      CERTNUM = #{record.CERTNUM,jdbcType=VARCHAR},
-      CERTIFIABLE = #{record.CERTIFIABLE,jdbcType=INTEGER},
-      ERRCODE = #{record.ERRCODE,jdbcType=INTEGER},
-      ENDTIME = #{record.ENDTIME,jdbcType=TIMESTAMP},
-      SECRECY = #{record.SECRECY,jdbcType=INTEGER},
-      DEVICETYPE = #{record.DEVICETYPE,jdbcType=VARCHAR},
-      DESCRIPTION = #{record.DESCRIPTION,jdbcType=VARCHAR},
-      STATUS = #{record.STATUS,jdbcType=VARCHAR},
-      SOURCECENTER = #{record.SOURCECENTER,jdbcType=VARCHAR},
-      ISWITHCHILD = #{record.ISWITHCHILD,jdbcType=VARCHAR},
-      CAMERATYPE = #{record.CAMERATYPE,jdbcType=VARCHAR},
-      PTZTYPE = #{record.PTZTYPE,jdbcType=VARCHAR},
-      POSITIONTYPE = #{record.POSITIONTYPE,jdbcType=VARCHAR},
-      ROOMTYPE = #{record.ROOMTYPE,jdbcType=VARCHAR},
-      USETYPE = #{record.USETYPE,jdbcType=VARCHAR},
-      SUPPLYLIGHTTYPE = #{record.SUPPLYLIGHTTYPE,jdbcType=VARCHAR},
-      DIRECTIONTYPE = #{record.DIRECTIONTYPE,jdbcType=VARCHAR},
-      IP = #{record.IP,jdbcType=VARCHAR},
-      STREAMENCRYPT = #{record.STREAMENCRYPT,jdbcType=VARCHAR},
-      ISCOLLECTED = #{record.ISCOLLECTED,jdbcType=VARCHAR},
-      OFFLINE_TIME = #{record.OFFLINE_TIME,jdbcType=VARCHAR},
-      CERTIFICATE = #{record.CERTIFICATE,jdbcType=LONGVARBINARY}
+    set ID = #{record.id,jdbcType=VARCHAR},
+      DEVICEID = #{record.deviceid,jdbcType=VARCHAR},
+      DEVICENAME = #{record.devicename,jdbcType=VARCHAR},
+      MANUFACTURER = #{record.manufacturer,jdbcType=VARCHAR},
+      MODEL = #{record.model,jdbcType=VARCHAR},
+      OWNER = #{record.owner,jdbcType=VARCHAR},
+      PASSWORD = #{record.password,jdbcType=VARCHAR},
+      CIVILCODE = #{record.civilcode,jdbcType=VARCHAR},
+      BLOCK = #{record.block,jdbcType=VARCHAR},
+      LONGITUDE = #{record.longitude,jdbcType=DOUBLE},
+      LATITUDE = #{record.latitude,jdbcType=DOUBLE},
+      ADDRESS = #{record.address,jdbcType=VARCHAR},
+      PARENTID = #{record.parentid,jdbcType=VARCHAR},
+      SAFETYWAY = #{record.safetyway,jdbcType=INTEGER},
+      REGISTERWAY = #{record.registerway,jdbcType=INTEGER},
+      CERTNUM = #{record.certnum,jdbcType=VARCHAR},
+      CERTIFIABLE = #{record.certifiable,jdbcType=INTEGER},
+      ERRCODE = #{record.errcode,jdbcType=INTEGER},
+      ENDTIME = #{record.endtime,jdbcType=TIMESTAMP},
+      SECRECY = #{record.secrecy,jdbcType=INTEGER},
+      DEVICETYPE = #{record.devicetype,jdbcType=VARCHAR},
+      DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      SOURCECENTER = #{record.sourcecenter,jdbcType=VARCHAR},
+      ISWITHCHILD = #{record.iswithchild,jdbcType=VARCHAR},
+      CAMERATYPE = #{record.cameratype,jdbcType=VARCHAR},
+      PTZTYPE = #{record.ptztype,jdbcType=VARCHAR},
+      POSITIONTYPE = #{record.positiontype,jdbcType=VARCHAR},
+      ROOMTYPE = #{record.roomtype,jdbcType=VARCHAR},
+      USETYPE = #{record.usetype,jdbcType=VARCHAR},
+      SUPPLYLIGHTTYPE = #{record.supplylighttype,jdbcType=VARCHAR},
+      DIRECTIONTYPE = #{record.directiontype,jdbcType=VARCHAR},
+      IP = #{record.ip,jdbcType=VARCHAR},
+      STREAMENCRYPT = #{record.streamencrypt,jdbcType=VARCHAR},
+      ISCOLLECTED = #{record.iscollected,jdbcType=VARCHAR},
+      OFFLINE_TIME = #{record.offlineTime,jdbcType=VARCHAR},
+      CERTIFICATE = #{record.certificate,jdbcType=LONGVARBINARY}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
     update d_outdeviceinfo
-    set ID = #{record.ID,jdbcType=VARCHAR},
-      DEVICEID = #{record.DEVICEID,jdbcType=VARCHAR},
-      DEVICENAME = #{record.DEVICENAME,jdbcType=VARCHAR},
-      MANUFACTURER = #{record.MANUFACTURER,jdbcType=VARCHAR},
-      MODEL = #{record.MODEL,jdbcType=VARCHAR},
-      OWNER = #{record.OWNER,jdbcType=VARCHAR},
-      PASSWORD = #{record.PASSWORD,jdbcType=VARCHAR},
-      CIVILCODE = #{record.CIVILCODE,jdbcType=VARCHAR},
-      BLOCK = #{record.BLOCK,jdbcType=VARCHAR},
-      LONGITUDE = #{record.LONGITUDE,jdbcType=DOUBLE},
-      LATITUDE = #{record.LATITUDE,jdbcType=DOUBLE},
-      ADDRESS = #{record.ADDRESS,jdbcType=VARCHAR},
-      PARENTID = #{record.PARENTID,jdbcType=VARCHAR},
-      SAFETYWAY = #{record.SAFETYWAY,jdbcType=INTEGER},
-      REGISTERWAY = #{record.REGISTERWAY,jdbcType=INTEGER},
-      CERTNUM = #{record.CERTNUM,jdbcType=VARCHAR},
-      CERTIFIABLE = #{record.CERTIFIABLE,jdbcType=INTEGER},
-      ERRCODE = #{record.ERRCODE,jdbcType=INTEGER},
-      ENDTIME = #{record.ENDTIME,jdbcType=TIMESTAMP},
-      SECRECY = #{record.SECRECY,jdbcType=INTEGER},
-      DEVICETYPE = #{record.DEVICETYPE,jdbcType=VARCHAR},
-      DESCRIPTION = #{record.DESCRIPTION,jdbcType=VARCHAR},
-      STATUS = #{record.STATUS,jdbcType=VARCHAR},
-      SOURCECENTER = #{record.SOURCECENTER,jdbcType=VARCHAR},
-      ISWITHCHILD = #{record.ISWITHCHILD,jdbcType=VARCHAR},
-      CAMERATYPE = #{record.CAMERATYPE,jdbcType=VARCHAR},
-      PTZTYPE = #{record.PTZTYPE,jdbcType=VARCHAR},
-      POSITIONTYPE = #{record.POSITIONTYPE,jdbcType=VARCHAR},
-      ROOMTYPE = #{record.ROOMTYPE,jdbcType=VARCHAR},
-      USETYPE = #{record.USETYPE,jdbcType=VARCHAR},
-      SUPPLYLIGHTTYPE = #{record.SUPPLYLIGHTTYPE,jdbcType=VARCHAR},
-      DIRECTIONTYPE = #{record.DIRECTIONTYPE,jdbcType=VARCHAR},
-      IP = #{record.IP,jdbcType=VARCHAR},
-      STREAMENCRYPT = #{record.STREAMENCRYPT,jdbcType=VARCHAR},
-      ISCOLLECTED = #{record.ISCOLLECTED,jdbcType=VARCHAR},
-      OFFLINE_TIME = #{record.OFFLINE_TIME,jdbcType=VARCHAR}
+    set ID = #{record.id,jdbcType=VARCHAR},
+      DEVICEID = #{record.deviceid,jdbcType=VARCHAR},
+      DEVICENAME = #{record.devicename,jdbcType=VARCHAR},
+      MANUFACTURER = #{record.manufacturer,jdbcType=VARCHAR},
+      MODEL = #{record.model,jdbcType=VARCHAR},
+      OWNER = #{record.owner,jdbcType=VARCHAR},
+      PASSWORD = #{record.password,jdbcType=VARCHAR},
+      CIVILCODE = #{record.civilcode,jdbcType=VARCHAR},
+      BLOCK = #{record.block,jdbcType=VARCHAR},
+      LONGITUDE = #{record.longitude,jdbcType=DOUBLE},
+      LATITUDE = #{record.latitude,jdbcType=DOUBLE},
+      ADDRESS = #{record.address,jdbcType=VARCHAR},
+      PARENTID = #{record.parentid,jdbcType=VARCHAR},
+      SAFETYWAY = #{record.safetyway,jdbcType=INTEGER},
+      REGISTERWAY = #{record.registerway,jdbcType=INTEGER},
+      CERTNUM = #{record.certnum,jdbcType=VARCHAR},
+      CERTIFIABLE = #{record.certifiable,jdbcType=INTEGER},
+      ERRCODE = #{record.errcode,jdbcType=INTEGER},
+      ENDTIME = #{record.endtime,jdbcType=TIMESTAMP},
+      SECRECY = #{record.secrecy,jdbcType=INTEGER},
+      DEVICETYPE = #{record.devicetype,jdbcType=VARCHAR},
+      DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      SOURCECENTER = #{record.sourcecenter,jdbcType=VARCHAR},
+      ISWITHCHILD = #{record.iswithchild,jdbcType=VARCHAR},
+      CAMERATYPE = #{record.cameratype,jdbcType=VARCHAR},
+      PTZTYPE = #{record.ptztype,jdbcType=VARCHAR},
+      POSITIONTYPE = #{record.positiontype,jdbcType=VARCHAR},
+      ROOMTYPE = #{record.roomtype,jdbcType=VARCHAR},
+      USETYPE = #{record.usetype,jdbcType=VARCHAR},
+      SUPPLYLIGHTTYPE = #{record.supplylighttype,jdbcType=VARCHAR},
+      DIRECTIONTYPE = #{record.directiontype,jdbcType=VARCHAR},
+      IP = #{record.ip,jdbcType=VARCHAR},
+      STREAMENCRYPT = #{record.streamencrypt,jdbcType=VARCHAR},
+      ISCOLLECTED = #{record.iscollected,jdbcType=VARCHAR},
+      OFFLINE_TIME = #{record.offlineTime,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>

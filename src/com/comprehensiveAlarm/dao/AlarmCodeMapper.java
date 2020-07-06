@@ -16,15 +16,21 @@ public interface AlarmCodeMapper {
 
     int insertSelective(AlarmCode record);
 
+    List<AlarmCode> selectByExampleWithBLOBs(AlarmCodeExample example);
+
     List<AlarmCode> selectByExample(AlarmCodeExample example);
 
     AlarmCode selectByPrimaryKey(String alarm_code_id);
 
     int updateByExampleSelective(@Param("record") AlarmCode record, @Param("example") AlarmCodeExample example);
 
+    int updateByExampleWithBLOBs(@Param("record") AlarmCode record, @Param("example") AlarmCodeExample example);
+
     int updateByExample(@Param("record") AlarmCode record, @Param("example") AlarmCodeExample example);
 
     int updateByPrimaryKeySelective(AlarmCode record);
+
+    int updateByPrimaryKeyWithBLOBs(AlarmCode record);
 
     int updateByPrimaryKey(AlarmCode record);
 }
