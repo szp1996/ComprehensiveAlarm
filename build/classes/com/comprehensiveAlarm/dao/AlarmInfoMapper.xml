@@ -74,6 +74,41 @@
     alarm_id, alarm_title, alarm_time, alarm_code_id, alarm_status, scene_id, workorder_id, 
     monitor_type, origin
   </sql>
+  
+  <!-- //告警信息展示得到下拉框的信息
+	List<String> getQueryConditionsForAlarmInformationOrigin(); 	 -->
+	 <select id="getQueryConditionsForAlarmInformationOrigin" resultType="java.lang.String" >
+    select  DISTINCT
+   origin
+    from alarm_info
+  </select>
+  
+	  <!-- //告警信息展示得到下拉框的信息
+	List<String>  getQueryConditionsForAlarmInformationSceneName();
+	 -->
+	 	<select id="getQueryConditionsForAlarmInformationSceneName" resultType="java.lang.String" >
+    select  DISTINCT
+  	 scene_name
+    from alarm_info,alarm_scene
+		WHERE alarm_info.alarm_id=alarm_scene.scene_id
+ 	 </select>
+	  <!-- //告警信息展示得到下拉框的信息
+	List<String> getQueryConditionsForAlarmInformationAlarmCodeName(); -->
+  	 	<select id="getQueryConditionsForAlarmInformationAlarmCodeName" resultType="java.lang.String" >
+    select  DISTINCT
+  	 alarm_code_name
+    from alarm_info,alarm_code
+		WHERE alarm_code.alarm_code_id=alarm_info.alarm_code_id
+ 	 </select>
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.comprehensiveAlarm.po.AlarmInfoExample" >
     select
     <if test="distinct" >
