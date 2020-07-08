@@ -1,5 +1,7 @@
 package com.comprehensiveAlarm.dao;
 
+import com.comprehensiveAlarm.jo.AlarmInfoCustom;
+import com.comprehensiveAlarm.jo.AlarmInformationQueryParam;
 import com.comprehensiveAlarm.po.AlarmInfo;
 import com.comprehensiveAlarm.po.AlarmInfoExample;
 import java.util.List;
@@ -11,6 +13,9 @@ public interface AlarmInfoMapper {
 	List<String> getQueryConditionsForAlarmInformationOrigin();
 	List<String>  getQueryConditionsForAlarmInformationSceneName();
 	List<String> getQueryConditionsForAlarmInformationAlarmCodeName();
+	
+	//根据条件查询告警信息
+	List<AlarmInfoCustom> getAlarmInformation(AlarmInformationQueryParam param);
 		
     int countByExample(AlarmInfoExample example);
 

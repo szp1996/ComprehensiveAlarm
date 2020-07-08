@@ -101,8 +101,17 @@
 		WHERE alarm_code.alarm_code_id=alarm_info.alarm_code_id
  	 </select>
   
-  
-  
+  <!-- 	//根据条件查询告警信息 List<AlarmInfoCustom> getAlarmInformation(AlarmInformationQueryParam param); -->
+   <select id="getAlarmInformation"  parameterType="AlarmInformationQueryParam"  resultType="com.comprehensiveAlarm.jo.AlarmInfoCustom">
+  select alarm_info.origin,  alarm_info.monitor_type,  alarm_info.alarm_code_id,   alarm_info.alarm_id,   
+alarm_info.alarm_status,  alarm_info.alarm_time,alarm_scene.scene_name,alarm_code.alarm_code_name,
+alarm_info.alarm_title  ,alarm_code.`level`
+    from alarm_info,alarm_code,alarm_scene
+		WHERE alarm_code.alarm_code_id=alarm_info.alarm_code_id and alarm_info.scene_id=alarm_scene.scene_id
+     and alarm_info.origin like ("%"+#{origin}+"%") and alarm_scene.scene_name like ("%"+#{scene_name}+"%") and 
+     alarm_code.alarm_code_name like ("%"+#{alarm_code_name}+"%")
+     and alarm_info.alarm_status=#{alarm_status} and alarm_code.`level`=#{level};
+  </select>
   
   
   
