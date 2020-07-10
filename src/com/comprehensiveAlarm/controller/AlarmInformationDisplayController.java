@@ -18,26 +18,26 @@ import com.comprehensiveAlarm.service.AlarmInformationDisplayService;
 @Controller
 public class AlarmInformationDisplayController {
 
-	@Autowired
-	private AlarmInformationDisplayService alarmInformationDisplayService;
+    @Autowired
+    private AlarmInformationDisplayService alarmInformationDisplayService;
 
 	//获取查询告警信息下拉框
-	@RequestMapping("/getQueryConditionsForAlarmInformation")
-	@ResponseBody
-	public Object  getQueryConditionsForAlarmInformation() {
-		List<String> originList=alarmInformationDisplayService.getQueryConditionsForAlarmInformationOrigin();
-		List<String> sceneNameList=alarmInformationDisplayService.getQueryConditionsForAlarmInformationSceneName();
-		List<String> alarmCodeNameList=alarmInformationDisplayService.getQueryConditionsForAlarmInformationAlarmCodeName();
-		Map<String,List<String>> data=new HashMap<String,List<String>>();
-		data.put("origin", originList);
-		data.put("scene_name", sceneNameList);
-		data.put("alarm_code_name", alarmCodeNameList);
-		Map<String,Object> result=new HashMap<String,Object>();
-		result.put("result", 1);
-		result.put("data", data);
-		return result;
-	}
-	
+    @RequestMapping("/getQueryConditionsForAlarmInformation")
+    @ResponseBody
+    public Object getQueryConditionsForAlarmInformation() {
+        List<String> originList = alarmInformationDisplayService.getQueryConditionsForAlarmInformationOrigin();
+        List<String> sceneNameList = alarmInformationDisplayService.getQueryConditionsForAlarmInformationSceneName();
+        List<String> alarmCodeNameList = alarmInformationDisplayService.getQueryConditionsForAlarmInformationAlarmCodeName();
+        Map<String, List<String>> data = new HashMap<String, List<String>>();
+        data.put("origin", originList);
+        data.put("scene_name", sceneNameList);
+        data.put("alarm_code_name", alarmCodeNameList);
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("result", 1);
+        result.put("data", data);
+        return result;
+    }
+
 	//查询告警信息
 	@RequestMapping("/getAlarmInformation")
 	@ResponseBody

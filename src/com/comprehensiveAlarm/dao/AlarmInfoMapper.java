@@ -5,6 +5,8 @@ import com.comprehensiveAlarm.jo.AlarmInformationQueryParam;
 import com.comprehensiveAlarm.po.AlarmInfo;
 import com.comprehensiveAlarm.po.AlarmInfoExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface AlarmInfoMapper {
@@ -16,7 +18,6 @@ public interface AlarmInfoMapper {
 	
 	//根据条件查询告警信息
 	List<AlarmInfoCustom> getAlarmInformation(AlarmInformationQueryParam param);
-		
     int countByExample(AlarmInfoExample example);
 
     int deleteByExample(AlarmInfoExample example);
