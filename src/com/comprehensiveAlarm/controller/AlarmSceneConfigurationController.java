@@ -1,7 +1,10 @@
 package com.comprehensiveAlarm.controller;
 
+import com.comprehensiveAlarm.jo.AlarmCodeCustom;
 import com.comprehensiveAlarm.jo.AlarmSceneQueryEntity;
 import com.comprehensiveAlarm.jo.AlarmSceneQueryParam;
+import com.comprehensiveAlarm.po.AlarmCode;
+import com.comprehensiveAlarm.po.AlarmScene;
 import com.comprehensiveAlarm.service.AlarmSceneConfigurationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,6 +47,54 @@ public class AlarmSceneConfigurationController {
         data.put("list", alarmSceneList);
         result.put("result", 1);
         result.put("data", data);
+        return result;
+    }
+
+    // 新增告警对象
+    @RequestMapping("/addAlarmScene")
+    @ResponseBody
+    public Map<String, Object> addAlarmScene(@RequestBody AlarmScene alarmScene) {
+        Map<String, Object> result = new HashMap<>();
+        Map<String, Object> data = alarmSceneConfigurationService.addAlarmScene(alarmScene);
+        result.put("result", 1);
+        result.put("data", data);
+        return result;
+    }
+
+    // 新增告警类型/获取告警对象
+    @RequestMapping("/getAlarmScene")
+    @ResponseBody
+    public Map<String, Object> addAlarmScene() {
+        Map<String, Object> result = new HashMap<>();
+        Map<String, Object> data = new HashMap<>();
+        List<AlarmScene> alarmSceneList = alarmSceneConfigurationService.getAlarmScene();
+        data.put("list", alarmSceneList);
+        result.put("result", 1);
+        result.put("data", data);
+        return result;
+    }
+
+    // 新增告警类型
+    @RequestMapping("/addAlarmCode")
+    @ResponseBody
+    public Map<String, Object> addAlarmCode(@RequestBody AlarmCodeCustom alarmCodeCustom){
+        Map<String, Object> result = new HashMap<>();
+        Map<String, Object> data = alarmSceneConfigurationService.addAlarmCode(alarmCodeCustom);
+        result.put("data", data);
+        result.put("result", 1);
+        return result;
+    }
+
+    // 更新阈值
+    @RequestMapping("/addThreshold")
+    @ResponseBody
+    public Map<String, Object> addThreshold(@RequestBody AlarmCode alarmCode){
+        Map<String, Object> result = new HashMap<>();
+        boolean success = alarmSceneConfigurationService.addThreshold(alarmCode);
+        if (success){
+            result.put("result", 1);
+        }else
+            result.put("result", 0);
         return result;
     }
 }

@@ -23,16 +23,25 @@
   <!-- 根据条件得到告警场景信息 -->
   <!-- List<AlarmSceneQueryEntity> getAlarmSceneByConditions(AlarmSceneQueryParam alarmSceneQueryParam) -->
   <select id="getAlarmSceneByConditions" parameterType="com.comprehensiveAlarm.jo.AlarmSceneQueryParam" resultType="com.comprehensiveAlarm.jo.AlarmSceneQueryEntity">
-    SELECT alarm_code.alarm_code_id, alarm_code.scene_name, alarm_code.level, alarm_code.description
+    SELECT alarm_code.alarm_code_id, alarm_scene.scene_name, alarm_code.level, alarm_code.description
     FROM alarm_code, alarm_scene
     WHERE alarm_code.scene_id = alarm_scene.scene_id AND alarm_code.level = #{level} AND alarm_code.alarm_code_id = #{alarm_code_id}
-    AND alarm_code.scene_name LIKE ("%"+#{scene_name}+"%")
+    AND alarm_scene.scene_name LIKE ('%'+#{scene_name}+'%')
     LIMIT #{offset}, #{page_size}
   </select>
 
+ <!-- AlarmScene selectBySceneName(String scene_id) -->
+  <select id="selectBySceneName" parameterType="java.lang.String" resultType="com.comprehensiveAlarm.po.AlarmScene">
+    SELECT *
+    FROM alarm_scene
+    WHERE scene_name = #{scene_name}
+  </select>
 
-
-
+  <!--  List<AlarmScene> getAlarmScene() -->
+  <select id="getAlarmScene" resultType="com.comprehensiveAlarm.po.AlarmScene">
+    SELECT *
+    FROM alarm_scene
+  </select>
 
 
 

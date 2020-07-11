@@ -13,6 +13,20 @@
   <resultMap id="ResultMapWithBLOBs" type="com.comprehensiveAlarm.po.AlarmCode" extends="BaseResultMap" >
     <result column="threshold" property="threshold" jdbcType="LONGVARCHAR" />
   </resultMap>
+
+  <!-- 更新阈值 -->
+  <!--  boolean updateThreshold(AlarmCode alarmCode) -->
+  <update id="updateThreshold" parameterType="com.comprehensiveAlarm.po.AlarmCode">
+    UPDATE alarm_code
+    SET alarm_code.threshold = #{threshold,jdbcType=LONGVARCHAR}
+    WHERE alarm_code.alarm_code_id = #{alarm_code_id}
+  </update>
+
+
+
+
+
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

@@ -6,6 +6,9 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface AlarmCodeMapper {
+    // 更新阈值
+    void updateThreshold(AlarmCode alarmCode);
+
     int countByExample(AlarmCodeExample example);
 
     int deleteByExample(AlarmCodeExample example);
