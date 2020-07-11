@@ -93,7 +93,15 @@
     from knowledge;
   </select>
   
-  
+  <!--     //根据条件获取知识
+    List<KnowledgeQueryResult> getKnowledge(KnowledgeQueryParam param) ; -->
+  <select id="getKnowledge" resultType="com.comprehensiveAlarm.jo.KnowledgeQueryResult"  parameterType="com.comprehensiveAlarm.jo.KnowledgeQueryParam">
+   select 
+    *
+    from knowledge
+		where knowledge.title like ("%"#{key}"%") and knowledge.content like ("%"#{key}"%")
+		and id=#{id} and scene_id =#{scene_id} and alarm_codes like ("%"#{alarm_code_id}"%");
+  </select>
   
   
   

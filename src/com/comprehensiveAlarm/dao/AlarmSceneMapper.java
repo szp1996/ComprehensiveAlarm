@@ -16,6 +16,10 @@ public interface AlarmSceneMapper {
     // 根据条件得到告警场景信息
     List<AlarmSceneQueryEntity> getAlarmSceneByConditions(AlarmSceneQueryParam alarmSceneQueryParam);
 
+    //根据id获取告警对象（场景）信息
+    AlarmScene getAlarmSceneById(String scene_id);
+    
+    
     int countByExample(AlarmSceneExample example);
 
     int deleteByExample(AlarmSceneExample example);

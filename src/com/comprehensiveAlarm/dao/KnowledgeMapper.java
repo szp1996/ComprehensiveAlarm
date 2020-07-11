@@ -1,5 +1,7 @@
 package com.comprehensiveAlarm.dao;
 
+import com.comprehensiveAlarm.jo.KnowledgeQueryParam;
+import com.comprehensiveAlarm.jo.KnowledgeQueryResult;
 import com.comprehensiveAlarm.po.Knowledge;
 import com.comprehensiveAlarm.po.KnowledgeExample;
 import java.util.List;
@@ -11,6 +13,9 @@ public interface KnowledgeMapper {
 	 List<String> getQueryConditionsForKnowledgeId();
     List<String> getQueryConditionsForKnowledgeSceneIdList();
     List<String> getQueryConditionsForKnowledgealarmAlarmCodeId();
+    
+    //根据条件获取知识
+    List<KnowledgeQueryResult> getKnowledge(KnowledgeQueryParam param) ;
 
     int countByExample(KnowledgeExample example);
 

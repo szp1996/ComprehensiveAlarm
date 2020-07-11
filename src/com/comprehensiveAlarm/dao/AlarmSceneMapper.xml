@@ -30,8 +30,13 @@
     LIMIT #{offset}, #{page_size}
   </select>
 
-
-
+<!--     //根据id获取告警对象（场景）信息
+    AlarmScene getAlarmSceneById(String scene_id); -->
+  <select id="getQueryConditionsForAlarmSceneAlarmCodeId" parameterType="java.lang.String" resultType="com.comprehensiveAlarm.po.AlarmScene">
+    select  *
+    from  alarm_scene
+    where alarm_scene.scene_id=#{scene_id}
+  </select>
 
 
 

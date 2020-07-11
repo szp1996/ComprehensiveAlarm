@@ -11,7 +11,8 @@ public interface AlarmCodeMapper {
 	//获取告警类型
 	 List<AlarmCodeCustom> getAlarmCode() ;
 	
-	
+	//根据告警类型id获取告警类型信息
+	 AlarmCode getAlarmCodeById(String alarm_code_id);
 	
 	
 	
