@@ -11,7 +11,7 @@ public interface KnowledgeTempMapper {
     int deleteByExample(KnowledgeTempExample example);
 
     int deleteByPrimaryKey(String id);
-
+    //知识录入
     int insert(KnowledgeTemp record);
 
     int insertSelective(KnowledgeTemp record);

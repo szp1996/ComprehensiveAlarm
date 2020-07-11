@@ -46,4 +46,6 @@ public class AlarmSceneConfigurationController {
         result.put("data", data);
         return result;
     }
+    
+    //
 }

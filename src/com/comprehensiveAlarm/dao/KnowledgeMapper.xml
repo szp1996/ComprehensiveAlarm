@@ -73,6 +73,31 @@
   <sql id="Base_Column_List" >
     id, title, content, scene_id, alarm_codes, origin_flag, share_num, search_num, feedback_num
   </sql>
+  
+  <!-- //知识展示的下拉框信息List<String> getQueryConditionsForKnowledgeId();-->
+    <select id="getQueryConditionsForKnowledgeId" resultType="java.lang.String" >
+     select 
+    knowledge.id
+    from knowledge;
+  </select>
+   <!-- //知识展示的下拉框信息List<String> getQueryConditionsForKnowledgeSceneIdList();  -->
+       <select id="getQueryConditionsForKnowledgeSceneIdList" resultType="java.lang.String">
+   select 
+    knowledge.scene_id
+    from knowledge;
+  </select>
+    <!-- //知识展示的下拉框信息 List<String> getQueryConditionsForKnowledgealarmAlarmCodeId(); -->
+      <select id="getQueryConditionsForKnowledgealarmAlarmCodeId" resultType="java.lang.String"  >
+   select 
+    knowledge.alarm_codes
+    from knowledge;
+  </select>
+  
+  
+  
+  
+  
+  
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.comprehensiveAlarm.po.KnowledgeExample" >
     select
     <if test="distinct" >

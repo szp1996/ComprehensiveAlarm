@@ -5,6 +5,42 @@
     <id column="scene_id" property="scene_id" jdbcType="VARCHAR" />
     <result column="scene_name" property="scene_name" jdbcType="VARCHAR" />
   </resultMap>
+
+  <!-- // 告警场景配置得到下拉框信息 -->
+  <!--  List<String> getQueryConditionsForAlarmSceneSceneName() -->
+  <select id="getQueryConditionsForAlarmSceneSceneName" resultType="java.lang.String">
+    select DISTINCT scene_name
+    from alarm_scene
+  </select>
+
+ <!-- List<String> getQueryConditionsForAlarmSceneAlarmCodeId() -->
+  <select id="getQueryConditionsForAlarmSceneAlarmCodeId" resultType="java.lang.String">
+    select DISTINCT alarm_code_id
+    from alarm_code, alarm_scene
+    where alarm_code.scene_id = alarm_scene.scene_id
+  </select>
+
+  <!-- 根据条件得到告警场景信息 -->
+  <!-- List<AlarmSceneQueryEntity> getAlarmSceneByConditions(AlarmSceneQueryParam alarmSceneQueryParam) -->
+  <select id="getAlarmSceneByConditions" parameterType="com.comprehensiveAlarm.jo.AlarmSceneQueryParam" resultType="com.comprehensiveAlarm.jo.AlarmSceneQueryEntity">
+    SELECT alarm_code.alarm_code_id, alarm_code.scene_name, alarm_code.level, alarm_code.description
+    FROM alarm_code, alarm_scene
+    WHERE alarm_code.scene_id = alarm_scene.scene_id AND alarm_code.level = #{level} AND alarm_code.alarm_code_id = #{alarm_code_id}
+    AND alarm_code.scene_name LIKE ("%"+#{scene_name}+"%")
+    LIMIT #{offset}, #{page_size}
+  </select>
+
+
+
+
+
+
+
+
+
+
+
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

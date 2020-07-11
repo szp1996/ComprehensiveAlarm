@@ -78,6 +78,16 @@
   <sql id="Blob_Column_List" >
     threshold
   </sql>
+  
+  <!-- 	//获取告警类型  List<AlarmCodeCustom> getAlarmCode() ; -->
+    <select id="getAlarmCode" resultMap="com.comprehensiveAlarm.jo.AlarmCodeCustom" >
+    select 
+	alarm_code.alarm_code_id,alarm_code_name,alarm_scene.scene_id,alarm_scene.scene_name
+    from alarm_code,alarm_scene
+	  where alarm_scene.scene_id=alarm_code.scene_id;
+  </select>
+  
+  
   <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.comprehensiveAlarm.po.AlarmCodeExample" >
     select
     <if test="distinct" >
