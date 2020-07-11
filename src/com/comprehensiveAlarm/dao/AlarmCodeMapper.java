@@ -7,17 +7,17 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface AlarmCodeMapper {
+
 	
 	//获取告警类型
 	 List<AlarmCodeCustom> getAlarmCode() ;
 	
 	//根据告警类型id获取告警类型信息
 	 AlarmCode getAlarmCodeById(String alarm_code_id);
-	
-	
-	
-	
-	
+	 
+    // 更新阈值
+    void updateThreshold(AlarmCode alarmCode);
+
     int countByExample(AlarmCodeExample example);
 
     int deleteByExample(AlarmCodeExample example);
