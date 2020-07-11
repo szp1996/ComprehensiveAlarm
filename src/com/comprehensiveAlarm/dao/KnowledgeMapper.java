@@ -6,6 +6,12 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface KnowledgeMapper {
+	  
+	//知识展示的下拉框信息
+	 List<String> getQueryConditionsForKnowledgeId();
+    List<String> getQueryConditionsForKnowledgeSceneIdList();
+    List<String> getQueryConditionsForKnowledgealarmAlarmCodeId();
+
     int countByExample(KnowledgeExample example);
 
     int deleteByExample(KnowledgeExample example);

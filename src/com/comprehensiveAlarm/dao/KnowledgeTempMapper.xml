@@ -71,6 +71,24 @@
   <sql id="Base_Column_List" >
     id, title, content, scene_id, alarm_codes, abandon, status
   </sql>
+  
+    <!-- 知识录入 -->
+  <insert id="insert" parameterType="com.comprehensiveAlarm.po.KnowledgeTemp" >
+    insert into knowledge_temp (id, title, content, 
+      scene_id, alarm_codes, abandon, 
+      status)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{scene_id,jdbcType=VARCHAR}, #{alarm_codes,jdbcType=VARCHAR}, #{abandon,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+  
+  
+  
+  
+  
+  
+  
+  
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.comprehensiveAlarm.po.KnowledgeTempExample" >
     select
     <if test="distinct" >
@@ -101,14 +119,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.comprehensiveAlarm.po.KnowledgeTemp" >
-    insert into knowledge_temp (id, title, content, 
-      scene_id, alarm_codes, abandon, 
-      status)
-    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
-      #{scene_id,jdbcType=VARCHAR}, #{alarm_codes,jdbcType=VARCHAR}, #{abandon,jdbcType=INTEGER}, 
-      #{status,jdbcType=INTEGER})
-  </insert>
+
   <insert id="insertSelective" parameterType="com.comprehensiveAlarm.po.KnowledgeTemp" >
     insert into knowledge_temp
     <trim prefix="(" suffix=")" suffixOverrides="," >
