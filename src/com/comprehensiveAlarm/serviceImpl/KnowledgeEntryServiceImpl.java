@@ -39,6 +39,7 @@ public class KnowledgeEntryServiceImpl implements KnowledgeEntryService {
 		param.setId(String.format("%s%s", param.getScene_id(),uuid));
 		param.setStatus(1);//1表示待审核
 		param.setAbandon(0);
+		param.setOrigin_flag(0);
 		knowledgeTempMapper.insert(param);
 	}
 

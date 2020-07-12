@@ -10,6 +10,16 @@ public class KnowledgeQueryResult extends Knowledge {
     private String alarm_code_name;
     
     private String scene_id;
+    
+    private String status;
+   
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public String getScene_name() {
 		return scene_name;

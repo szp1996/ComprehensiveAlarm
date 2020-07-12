@@ -14,8 +14,20 @@ public class KnowledgeTemp {
     private Integer abandon;
 
     private Integer status;
+    
+    private Integer origin_flag;
+    
+    
 
-    public String getId() {
+    public Integer getOrigin_flag() {
+		return origin_flag;
+	}
+
+	public void setOrigin_flag(Integer origin_flag) {
+		this.origin_flag = origin_flag;
+	}
+
+	public String getId() {
         return id;
     }
 

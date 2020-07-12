@@ -12,6 +12,7 @@ import com.comprehensiveAlarm.dao.AlarmCodeMapper;
 import com.comprehensiveAlarm.dao.AlarmInfoMapper;
 import com.comprehensiveAlarm.dao.AlarmSceneMapper;
 import com.comprehensiveAlarm.dao.KnowledgeMapper;
+import com.comprehensiveAlarm.dao.KnowledgeTempMapper;
 import com.comprehensiveAlarm.jo.KnowledgeQueryParam;
 import com.comprehensiveAlarm.jo.KnowledgeQueryResult;
 import com.comprehensiveAlarm.service.KnowledgeInformationDisplayService;
@@ -21,6 +22,9 @@ public class KnowledgeInformationDisplayServiceImpl implements KnowledgeInformat
 
 	@Autowired
 	private KnowledgeMapper knowledgeMapper;
+	
+	@Autowired
+	private KnowledgeTempMapper knowledgeTempMapper;
 	
 	@Autowired
 	private AlarmCodeMapper alarmCodeMapper;
@@ -66,6 +70,7 @@ public class KnowledgeInformationDisplayServiceImpl implements KnowledgeInformat
 	public List<KnowledgeQueryResult> getKnowledge(KnowledgeQueryParam param) {
 		// TODO Auto-generated method stub
 		param.offset();
+		//从知识表获取
 		List<KnowledgeQueryResult> list=knowledgeMapper.getKnowledge(param);
 		List<KnowledgeQueryResult> res=new ArrayList<>();
 		for(int i=0;i<list.size();i++) {
@@ -85,6 +90,7 @@ public class KnowledgeInformationDisplayServiceImpl implements KnowledgeInformat
 					knowResult.setSearch_num(list.get(i).getSearch_num());
 					knowResult.setShare_num(list.get(i).getShare_num());
 					knowResult.setTitle(list.get(i).getTitle());
+					knowResult.setStatus("2");
 					res.add(knowResult);
 				}
 			} else {
@@ -100,6 +106,44 @@ public class KnowledgeInformationDisplayServiceImpl implements KnowledgeInformat
 				knowResult.setSearch_num(list.get(i).getSearch_num());
 				knowResult.setShare_num(list.get(i).getShare_num());
 				knowResult.setTitle(list.get(i).getTitle());
+				knowResult.setStatus("2");
+				res.add(knowResult);
+			}
+		}
+		//从待审核表获取
+		List<KnowledgeQueryResult> list_temp=knowledgeTempMapper.getKnowledgeTemp(param);
+		for(int i=0;i<list_temp.size();i++) {
+			if(list_temp.get(i).getAlarm_codes().contains("-")) {
+				String str=list_temp.get(i).getAlarm_codes();
+				String[] strs=str.split("-");
+				for(int j=0;j<strs.length;j++ ) {
+					KnowledgeQueryResult knowResult=new KnowledgeQueryResult();
+					knowResult.setId(list_temp.get(i).getId());
+					knowResult.setAlarm_code_id(strs[j]);
+					knowResult.setAlarm_code_name(alarmCodeMapper.getAlarmCodeById(strs[j]).getAlarm_code_name());
+					knowResult.setContent(list_temp.get(i).getContent());
+					knowResult.setFeedback_num(0);
+					knowResult.setOrigin_flag(list_temp.get(i).getOrigin_flag());
+					knowResult.setScene_id(list_temp.get(i).getScene_id());
+					knowResult.setScene_name(alarmSceneMapper.getAlarmSceneById(list_temp.get(i).getScene_id()).getScene_name());
+					knowResult.setSearch_num(0);
+					knowResult.setShare_num(0);
+					knowResult.setTitle(list_temp.get(i).getTitle());
+					res.add(knowResult);
+				}
+			} else {
+				KnowledgeQueryResult knowResult=new KnowledgeQueryResult();
+				knowResult.setId(list_temp.get(i).getId());
+				knowResult.setAlarm_code_id(list_temp.get(i).getAlarm_codes());
+				knowResult.setAlarm_code_name(alarmCodeMapper.getAlarmCodeById(list_temp.get(i).getAlarm_codes()).getAlarm_code_name());
+				knowResult.setContent(list_temp.get(i).getContent());
+				knowResult.setFeedback_num(list_temp.get(i).getFeedback_num());
+				knowResult.setOrigin_flag(list_temp.get(i).getOrigin_flag());
+				knowResult.setScene_id(list_temp.get(i).getScene_id());
+				knowResult.setScene_name(alarmSceneMapper.getAlarmSceneById(list_temp.get(i).getScene_id()).getScene_name());
+				knowResult.setSearch_num(0);
+				knowResult.setShare_num(0);
+				knowResult.setTitle(list_temp.get(i).getTitle());
 				res.add(knowResult);
 			}
 		}
