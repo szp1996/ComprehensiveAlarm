@@ -9,14 +9,18 @@ import org.apache.ibatis.annotations.Param;
 public interface AlarmCodeMapper {
 
 	
-	//获取告警类型
-	 List<AlarmCodeCustom> getAlarmCode() ;
+	// 获取告警类型
+    List<AlarmCodeCustom> getAlarmCode() ;
 	
-	//根据告警类型id获取告警类型信息
-	 AlarmCode getAlarmCodeById(String alarm_code_id);
-	 
+	// 根据告警类型id获取告警类型信息
+    AlarmCode getAlarmCodeById(String alarm_code_id);
+    // 根据值选择
+    AlarmCode selectByAlarmCodeName(String alarm_code_name);
+    // 新增告警类型
+    void insertNew(AlarmCodeCustom record);
     // 更新阈值
     void updateThreshold(AlarmCode alarmCode);
+
 
     int countByExample(AlarmCodeExample example);
 

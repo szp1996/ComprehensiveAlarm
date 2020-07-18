@@ -5,7 +5,6 @@ import com.comprehensiveAlarm.jo.AlarmSceneQueryEntity;
 import com.comprehensiveAlarm.jo.AlarmSceneQueryParam;
 import com.comprehensiveAlarm.po.AlarmCode;
 import com.comprehensiveAlarm.po.AlarmScene;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
@@ -14,7 +13,7 @@ import java.util.Map;
 public interface AlarmSceneConfigurationService {
 
     // 告警场景配置得到下拉框信息
-    List<String> getQueryConditionsForAlarmSceneSceneName();
+    List<String> getQueryConditionsSceneName();
     List<String> getQueryConditionsForAlarmSceneAlarmCodeId();
 
     // 根据条件得到告警场景信息
@@ -27,8 +26,14 @@ public interface AlarmSceneConfigurationService {
     List<AlarmScene> getAlarmScene();
 
     // 新增告警类型
-    Map<String, Object> addAlarmCode(AlarmCodeCustom alarmCodeCustom);
+    int judgingAlarmCodeId(String alarm_code_id);
+    int judgingAlarmCodeName(String alarm_code_name);
+    int addAlarmCode(AlarmCodeCustom alarmCodeCustom);
 
     // 更新阈值
     boolean addThreshold(AlarmCode alarmCode);
+
+    // 删除
+    int deleteAlarmCode(String alarmCodeId);
+
 }

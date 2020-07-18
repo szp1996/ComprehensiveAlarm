@@ -27,7 +27,7 @@ public class AlarmSceneConfigurationController {
     @ResponseBody
     public Map<String, Object> getQueryConditionsForAlarmScene() {
         Map<String, Object> result = new HashMap<>();
-        List<String> sceneNameList = alarmSceneConfigurationService.getQueryConditionsForAlarmSceneSceneName();
+        List<String> sceneNameList = alarmSceneConfigurationService.getQueryConditionsSceneName();
         List<String> alarmCodeIdList = alarmSceneConfigurationService.getQueryConditionsForAlarmSceneAlarmCodeId();
         Map<String, List<String>> data = new HashMap<>();
         data.put("scene_name", sceneNameList);
@@ -79,9 +79,17 @@ public class AlarmSceneConfigurationController {
     @ResponseBody
     public Map<String, Object> addAlarmCode(@RequestBody AlarmCodeCustom alarmCodeCustom){
         Map<String, Object> result = new HashMap<>();
-        Map<String, Object> data = alarmSceneConfigurationService.addAlarmCode(alarmCodeCustom);
+        Map<String, Object> data = new HashMap<>();
+        int flag1 = alarmSceneConfigurationService.judgingAlarmCodeId(alarmCodeCustom.getAlarm_code_id());
+        data.put("scene_code_id_type", flag1);
+        int flag2 = alarmSceneConfigurationService.judgingAlarmCodeName(alarmCodeCustom.getAlarm_code_name());
+        data.put("scene_code_name_type", flag2);
+        int success = 0;
+        if (flag1 == 0 && flag2 == 0){
+           success =  alarmSceneConfigurationService.addAlarmCode(alarmCodeCustom);
+        }
         result.put("data", data);
-        result.put("result", 1);
+        result.put("result", success);
         return result;
     }
 
@@ -95,6 +103,16 @@ public class AlarmSceneConfigurationController {
             result.put("result", 1);
         }else
             result.put("result", 0);
+        return result;
+    }
+
+    // 删除
+    @RequestMapping("/deleteAlarmCode")
+    @ResponseBody
+    public Map<String, Integer> deleteAlarmCode(String alarmCodeId){
+        Map<String, Integer> result = new HashMap<>();
+        int flag = alarmSceneConfigurationService.deleteAlarmCode(alarmCodeId);
+        result.put("result", flag);
         return result;
     }
 }

@@ -23,7 +23,7 @@ public class AlarmSceneConfigurationServiceImpl implements AlarmSceneConfigurati
     private AlarmCodeMapper alarmCodeMapper;
 
     @Override
-    public List<String> getQueryConditionsForAlarmSceneSceneName() {
+    public List<String> getQueryConditionsSceneName() {
         return alarmSceneMapper.getQueryConditionsForAlarmSceneSceneName();
     }
 
@@ -73,39 +73,55 @@ public class AlarmSceneConfigurationServiceImpl implements AlarmSceneConfigurati
     }
 
     @Override
-    public Map<String, Object> addAlarmCode(AlarmCodeCustom alarmCodeCustom) {
-        Map<String, Object> data = new HashMap<>();
-        int flag1 = 0, flag2 = 0;
-        AlarmCode alarmCode1 = alarmCodeMapper.selectByPrimaryKey(alarmCodeCustom.getAlarm_code_id());
-        if (alarmCode1 != null){
-            flag1 = 1;
-            data.put("scene_code_id_type", 1);
+    public int judgingAlarmCodeId(String alarm_code_id) {
+        AlarmCode alarmCode = alarmCodeMapper.selectByPrimaryKey(alarm_code_id);
+        if (alarmCode == null) {
+            return 0;
         } else
-            data.put("scene_code_id_type", 0);
-        AlarmCode alarmCode2 = alarmCodeMapper.selectByPrimaryKey(alarmCodeCustom.getAlarm_code_name());
-        if (alarmCode2 != null){
-            flag2 = 1;
-            data.put("scene_code_name_type", 1);
+            return 1;
+    }
+
+    @Override
+    public int judgingAlarmCodeName(String alarm_code_name) {
+        AlarmCode alarmCode = alarmCodeMapper.selectByAlarmCodeName(alarm_code_name);
+        if (alarmCode == null) {
+            return 0;
         } else
-            data.put("scene_code_name_type", 0);
-        if (flag1 == 0 && flag2 ==0)
-            try{
-                alarmCodeMapper.insert(alarmCodeCustom);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        return data;
+            return 1;
+    }
+
+    @Override
+    public int addAlarmCode(AlarmCodeCustom alarmCodeCustom) {
+        try {
+            alarmCodeMapper.insertNew(alarmCodeCustom);
+            return 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     @Override
     public boolean addThreshold(AlarmCode alarmCode) {
-        try{
+        try {
             alarmCodeMapper.updateThreshold(alarmCode);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
+    }
+
+
+    @Override
+    public int deleteAlarmCode(String alarmCodeId) {
+        try {
+            alarmCodeMapper.deleteByPrimaryKey(alarmCodeId);
+            return 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
 }
