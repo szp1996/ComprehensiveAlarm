@@ -17,6 +17,9 @@ public interface AlarmCodeMapper {
 	 
     // 更新阈值
     void updateThreshold(AlarmCode alarmCode);
+    
+    
+    List<AlarmCode> getAllAlarmCode() ;
 
     int countByExample(AlarmCodeExample example);
 

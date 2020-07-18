@@ -6,6 +6,12 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface WorkorderTypeMapper {
+	//得到整改类型
+	 List<WorkorderType> getWorkorderType();
+	 
+	//跟新工单类型
+	   int updateByPrimaryKeySelective(WorkorderType record);
+
     int countByExample(WorkorderTypeExample example);
 
     int deleteByExample(WorkorderTypeExample example);
@@ -24,7 +30,7 @@ public interface WorkorderTypeMapper {
 
     int updateByExample(@Param("record") WorkorderType record, @Param("example") WorkorderTypeExample example);
 
-    int updateByPrimaryKeySelective(WorkorderType record);
-
+  
+    
     int updateByPrimaryKey(WorkorderType record);
 }

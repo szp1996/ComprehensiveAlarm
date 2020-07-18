@@ -67,6 +67,31 @@
   <sql id="Base_Column_List" >
     id, name, scene_ids
   </sql>
+  <!-- //得到整改类型
+	 List<WorkorderType> getWorkorderType(); -->
+    <select id="getWorkorderType" resultType="com.comprehensiveAlarm.po.WorkorderType">
+    select 
+    *
+    from workorder_type
+  </select>
+  
+    <!-- 跟新工单类型 -->
+  <update id="updateByPrimaryKeySelective" parameterType="com.comprehensiveAlarm.po.WorkorderType" >
+    update workorder_type
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="scene_ids != null" >
+        scene_ids = #{scene_ids,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+  
+  
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.comprehensiveAlarm.po.WorkorderTypeExample" >
     select
     <if test="distinct" >
@@ -160,18 +185,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.comprehensiveAlarm.po.WorkorderType" >
-    update workorder_type
-    <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="scene_ids != null" >
-        scene_ids = #{scene_ids,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+
   <update id="updateByPrimaryKey" parameterType="com.comprehensiveAlarm.po.WorkorderType" >
     update workorder_type
     set name = #{name,jdbcType=VARCHAR},
