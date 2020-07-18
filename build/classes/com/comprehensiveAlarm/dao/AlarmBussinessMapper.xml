@@ -6,6 +6,38 @@
     <result column="alarm_bussiness_name" property="alarm_bussiness_name" jdbcType="VARCHAR" />
     <result column="scene_id" property="scene_id" jdbcType="VARCHAR" />
   </resultMap>
+
+  <!--  获取下拉菜单信息-->
+  <!-- List<String> getQueryConditionsAlarmBussinessName() -->
+  <select id="getQueryConditionsAlarmBussinessName" resultType="java.lang.String">
+    select distinct alarm_bussiness_name
+    from alarm_bussiness
+  </select>
+
+  <!-- List<AlarmBussinessQueryResult> getAlarmBussiness(AlarmBussinessQueryParam alarmBussinessQueryParam) -->
+  <select id="getAlarmBussiness" parameterType="com.comprehensiveAlarm.jo.AlarmBussinessQueryParam" resultType="com.comprehensiveAlarm.jo.AlarmBussinessQueryResult">
+    select alarm_scene.scene_name, alarm_bussiness.alarm_bussiness_name
+    from alarm_bussiness, alarm_scene
+    where alarm_bussiness.scene_id = alarm_scene.scene_id
+    limit #{offset},#{page_size}
+  </select>
+
+  <!--新增告警业务-->
+  <!--  AlarmBussiness selectByName(String alarm_bussiness_name)-->
+  <select id="selectByName" parameterType="java.lang.String" resultType="com.comprehensiveAlarm.po.AlarmBussiness">
+    select *
+    from alarm_bussiness
+    where alarm_bussiness_name = #{alarm_bussiness_name}
+  </select>
+
+  <!--  AlarmBussiness selectByName(AlarmBussiness alarmBussiness)-->
+  <select id="selectByName" parameterType="com.comprehensiveAlarm.po.AlarmBussiness" resultType="com.comprehensiveAlarm.po.AlarmBussiness">
+    select *
+    from alarm_bussiness
+    where alarm_bussiness_name = #{alarm_bussiness_name} and alarm_bussiness_id != #{alarm_bussiness_id}
+  </select>
+
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -82,7 +114,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from alarm_bussiness
     where alarm_bussiness_id = #{alarm_bussiness_id,jdbcType=VARCHAR}
@@ -98,9 +130,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.comprehensiveAlarm.po.AlarmBussiness" >
-    insert into alarm_bussiness (alarm_bussiness_id, alarm_bussiness_name, 
+    insert into alarm_bussiness (alarm_bussiness_id, alarm_bussiness_name,
       scene_id)
-    values (#{alarm_bussiness_id,jdbcType=VARCHAR}, #{alarm_bussiness_name,jdbcType=VARCHAR}, 
+    values (#{alarm_bussiness_id,jdbcType=VARCHAR}, #{alarm_bussiness_name,jdbcType=VARCHAR},
       #{scene_id,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.comprehensiveAlarm.po.AlarmBussiness" >

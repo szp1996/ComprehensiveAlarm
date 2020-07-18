@@ -87,6 +87,19 @@
 	and status=1 
 	limit #{page_size} ,offset #{offset}
   </select>
+  <!-- 	//派发更新Workorder的维护人、维护单位、状态
+	void dispatchUpdateWorkorder(Workorder workorder); -->
+    <update id="dispatchUpdateWorkorder"  parameterType="com.comprehensiveAlarm.po.Workorder" >
+    update workorder
+    set
+      contact_person = #{contact_person},
+      contact_org = #{contact_org},
+      status = #{status},
+       where workorder_id = #{workorder_id,jdbcType=VARCHAR}
+
+  </update>
+  
+  
   
   
   

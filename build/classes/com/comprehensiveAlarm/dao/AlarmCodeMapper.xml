@@ -14,12 +14,43 @@
     <result column="threshold" property="threshold" jdbcType="LONGVARCHAR" />
   </resultMap>
 
+  <!-- 	//获取告警类型  List<AlarmCodeCustom> getAlarmCode() ; -->
+  <select id="getAlarmCode" resultType="com.comprehensiveAlarm.jo.AlarmCodeCustom" >
+    select
+      alarm_code.alarm_code_id,alarm_code_name,alarm_scene.scene_id,alarm_scene.scene_name
+    from alarm_code,alarm_scene
+    where alarm_scene.scene_id=alarm_code.scene_id;
+  </select>
+
+  <!-- 	//根据告警类型id获取告警类型信息  AlarmCode getAlarmCodeById(String alarm_code_id); -->
+  <select id="getAlarmCodeById" resultType="com.comprehensiveAlarm.jo.AlarmCodeCustom" parameterType="java.lang.String" >
+    select *
+    from alarm_code
+    where alarm_code_id=#{alarm_code_id};
+  </select>
+
+  <!-- 新增告警类型 -->
+  <!-- AlarmCode selectByAlarmCodeName(String alarm_code_name) -->
+  <select id="selectByAlarmCodeName" parameterType="com.comprehensiveAlarm.jo.AlarmCodeCustom" resultType="com.comprehensiveAlarm.po.AlarmCode">
+    select *
+    from alarm_code
+    where alarm_code_name = #{alarm_code_name}
+  </select>
+
+  <!-- void insertNew(AlarmCodeCustom record) -->
+  <insert id="insertNew" parameterType="com.comprehensiveAlarm.jo.AlarmCodeCustom" >
+    insert into alarm_code (alarm_code_id, alarm_code_name, level,
+                            description, scene_id, threshold)
+    values (#{alarm_code_id,jdbcType=VARCHAR}, #{alarm_code_name,jdbcType=VARCHAR}, #{level,jdbcType=VARCHAR},
+            #{description,jdbcType=VARCHAR}, #{scene_id,jdbcType=VARCHAR}, #{threshold,jdbcType=LONGVARCHAR})
+  </insert>
+
   <!-- 更新阈值 -->
   <!--  boolean updateThreshold(AlarmCode alarmCode) -->
   <update id="updateThreshold" parameterType="com.comprehensiveAlarm.po.AlarmCode">
     UPDATE alarm_code
-    SET alarm_code.threshold = #{threshold,jdbcType=LONGVARCHAR}
-    WHERE alarm_code.alarm_code_id = #{alarm_code_id}
+    SET threshold = #{threshold,jdbcType=LONGVARCHAR}
+    WHERE alarm_code_id = #{alarm_code_id}
   </update>
 
 	<!-- List<AlarmCode> getAllAlarmCode() ; -->
@@ -28,8 +59,6 @@
 	*
     from alarm_code;
   </select>
-
-
 
   <sql id="Example_Where_Clause" >
     <where >
@@ -96,24 +125,6 @@
   <sql id="Blob_Column_List" >
     threshold
   </sql>
-  
-  <!-- 	//获取告警类型  List<AlarmCodeCustom> getAlarmCode() ; -->
-    <select id="getAlarmCode" resultType="com.comprehensiveAlarm.jo.AlarmCodeCustom" >
-    select 
-	alarm_code.alarm_code_id,alarm_code_name,alarm_scene.scene_id,alarm_scene.scene_name
-    from alarm_code,alarm_scene
-	  where alarm_scene.scene_id=alarm_code.scene_id;
-  </select>
-  
-  <!-- 	//根据告警类型id获取告警类型信息  AlarmCode getAlarmCodeById(String alarm_code_id); -->
-      <select id="getAlarmCodeById" resultType="com.comprehensiveAlarm.jo.AlarmCodeCustom" parameterType="java.lang.String" >
-    select 
-	*
-    from alarm_code
-	  where alarm_code.alarm_code_id=#{alarm_code_id};
-  </select>
-  
-  
   <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.comprehensiveAlarm.po.AlarmCodeExample" >
     select
     <if test="distinct" >

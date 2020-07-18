@@ -13,6 +13,9 @@ public interface WorkorderMapper {
 	//根据条件查询工单
 	List<Workorder> getWorkorder(WorkorderInformationQueryParam param);
 	 
+	//派发更新Workorder的维护人、维护单位、状态
+	void dispatchUpdateWorkorder(Workorder workorder);
+	
     int countByExample(WorkorderExample example);
 
     int deleteByExample(WorkorderExample example);
