@@ -1,11 +1,18 @@
 package com.comprehensiveAlarm.dao;
 
+import com.comprehensiveAlarm.jo.WorkorderInformationQueryParam;
 import com.comprehensiveAlarm.po.Workorder;
 import com.comprehensiveAlarm.po.WorkorderExample;
+import com.comprehensiveAlarm.po.WorkorderType;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface WorkorderMapper {
+
+	//根据条件查询工单
+	List<Workorder> getWorkorder(WorkorderInformationQueryParam param);
+	 
     int countByExample(WorkorderExample example);
 
     int deleteByExample(WorkorderExample example);

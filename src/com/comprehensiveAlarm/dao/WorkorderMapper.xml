@@ -74,6 +74,22 @@
     workorder_id, title, alarm_codes, type, contact_person, contact_org, status, feedback, 
     knowledge_id
   </sql>
+  
+  <!-- 	//根据条件查询工单
+	List<Workorder> getWorkorder(WorkorderInformationQueryParam param);
+	 -->
+    <select id="getWorkorder" resultType="com.comprehensiveAlarm.po.Workorder" parameterType="com.comprehensiveAlarm.jo.WorkorderInformationQueryParam" >
+ select 
+    *
+    from workorder
+    where  title like ("%"+#{title}+"%")  and alarm_codes like ("%"+#{alarm_code}+"%") 
+    and contact_person like("%"+#{contact_person}+"%")
+	and status=1 
+	limit #{page_size} ,offset #{offset}
+  </select>
+  
+  
+  
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.comprehensiveAlarm.po.WorkorderExample" >
     select
     <if test="distinct" >

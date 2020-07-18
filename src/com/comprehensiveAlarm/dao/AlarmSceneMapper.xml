@@ -40,7 +40,7 @@
   </select>
 
 
- <!-- AlarmScene selectBySceneName(String scene_id) -->
+ <!-- AlarmScene selectBySceneName(String scene_name) -->
   <select id="selectBySceneName" parameterType="java.lang.String" resultType="com.comprehensiveAlarm.po.AlarmScene">
     SELECT *
     FROM alarm_scene

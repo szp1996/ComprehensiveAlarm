@@ -22,7 +22,7 @@ public interface AlarmSceneMapper {
     
 
     // 新增告警对象
-    AlarmScene selectBySceneName(String scene_id);
+    AlarmScene selectBySceneName(String scene_name);
 
     // 新增告警类型/获取告警对象
     List<AlarmScene> getAlarmScene();

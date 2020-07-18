@@ -67,6 +67,16 @@
   <sql id="Base_Column_List" >
     template_id, template, content
   </sql>
+  
+  <!-- 	//得到派发模板
+	List<WorkorderTemplate> getWorkorderTemplate(); -->
+    <select id="getWorkorderTemplate" resultType="com.comprehensiveAlarm.po.WorkorderTemplate">
+    select 
+    *
+    from workorder_template;
+  </select>
+  
+  
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.comprehensiveAlarm.po.WorkorderTemplateExample" >
     select
     <if test="distinct" >

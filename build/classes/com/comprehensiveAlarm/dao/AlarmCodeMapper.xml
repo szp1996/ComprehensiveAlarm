@@ -22,8 +22,12 @@
     WHERE alarm_code.alarm_code_id = #{alarm_code_id}
   </update>
 
-
-
+	<!-- List<AlarmCode> getAllAlarmCode() ; -->
+      <select id="getAllAlarmCode" resultType="com.comprehensiveAlarm.jo.AlarmCode"  >
+    select 
+	*
+    from alarm_code;
+  </select>
 
 
 

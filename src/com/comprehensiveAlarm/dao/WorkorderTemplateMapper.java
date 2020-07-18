@@ -6,6 +6,10 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface WorkorderTemplateMapper {
+	
+	//得到派发模板
+	List<WorkorderTemplate> getWorkorderTemplate();
+	
     int countByExample(WorkorderTemplateExample example);
 
     int deleteByExample(WorkorderTemplateExample example);
