@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.comprehensiveAlarm.jo.FeedBackParam;
 import com.comprehensiveAlarm.po.Workorder;
 import com.comprehensiveAlarm.service.WorkOrderFeedbackService;
 
@@ -23,7 +24,16 @@ public class WorkOrderFeedbackController {
 	@ResponseBody
 	public Object  getOrders(@RequestBody Workorder param) {
 		Map<String,Object> result=new HashMap<String,Object>();
-		//workOrderFeedbackService.getOrders(param.getWorkorder_id());
+		workOrderFeedbackService.getOrders(param.getWorkorder_id());
+		result.put("result", 1);
+		return result;
+	}
+	//反馈feedback
+	@RequestMapping("/feedback")
+	@ResponseBody
+	public Object  feedback(@RequestBody FeedBackParam param) {
+		Map<String,Object> result=new HashMap<String,Object>();
+		workOrderFeedbackService.feedback(param);
 		result.put("result", 1);
 		return result;
 	}

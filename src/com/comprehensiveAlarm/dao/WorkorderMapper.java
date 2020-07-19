@@ -19,6 +19,12 @@ public interface WorkorderMapper {
 	//完成工单
 	void overOrders(String Workorder_id);
 	
+	//接单更新状态
+	void getOrdersUpdateStatus(String Workorder_id);
+	
+	//反馈更新状态
+	void feedbackUpdateStatus(String Workorder_id);
+	
     int countByExample(WorkorderExample example);
 
     int deleteByExample(WorkorderExample example);

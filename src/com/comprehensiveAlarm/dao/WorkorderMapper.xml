@@ -100,15 +100,30 @@
   </update>
   <!-- 	//完成工单
 	void overOrders(String Workorder_id); -->
-  <update id="dispatchUpdateWorkorder"  parameterType="com.comprehensiveAlarm.po.Workorder" >
+  <update id="dispatchUpdateWorkorder"  parameterType="java.lang.String" >
     update workorder
      set
       status = 4,
        where workorder_id = #{Workorder_id}
   </update>
   
-  
-  
+  <!-- 	//接单更新状态
+	void getOrdersUpdateStatus(String Workorder_id); -->
+    <update id="getOrdersUpdateStatus"  parameterType="java.lang.String" >
+    update workorder
+     set
+      status =2,
+       where workorder_id = #{Workorder_id}
+  </update>
+  <!-- //反馈更新状态
+	void feedbackUpdateStatus(String Workorder_id);
+   -->
+      <update id="feedbackUpdateStatus"  parameterType="java.lang.String" >
+    update workorder
+     set
+      status =3,
+       where workorder_id = #{Workorder_id}
+  </update>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.comprehensiveAlarm.po.WorkorderExample" >
     select
     <if test="distinct" >
