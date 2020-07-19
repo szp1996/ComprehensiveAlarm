@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.comprehensiveAlarm.jo.DispatchParam;
+import com.comprehensiveAlarm.jo.WorkorderFlowResult;
 import com.comprehensiveAlarm.jo.WorkorderInformationQueryParam;
 import com.comprehensiveAlarm.po.AlarmCode;
 import com.comprehensiveAlarm.po.Workorder;
@@ -22,4 +23,11 @@ public interface WorkOrderInformationDisplayService {
 	
 	//派发
 	void dispatch(DispatchParam param);
+	
+	//得到处理进度
+	List<WorkorderFlowResult> dispatchRecord(String Workorder_id);
+	
+	//完成工单
+	void overOrders(String Workorder_id);
+	
 }

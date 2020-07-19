@@ -98,8 +98,14 @@
        where workorder_id = #{workorder_id,jdbcType=VARCHAR}
 
   </update>
-  
-  
+  <!-- 	//完成工单
+	void overOrders(String Workorder_id); -->
+  <update id="dispatchUpdateWorkorder"  parameterType="com.comprehensiveAlarm.po.Workorder" >
+    update workorder
+     set
+      status = 4,
+       where workorder_id = #{Workorder_id}
+  </update>
   
   
   

@@ -16,6 +16,9 @@ public interface WorkorderMapper {
 	//派发更新Workorder的维护人、维护单位、状态
 	void dispatchUpdateWorkorder(Workorder workorder);
 	
+	//完成工单
+	void overOrders(String Workorder_id);
+	
     int countByExample(WorkorderExample example);
 
     int deleteByExample(WorkorderExample example);

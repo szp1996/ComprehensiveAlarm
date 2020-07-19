@@ -68,6 +68,26 @@
   <sql id="Base_Column_List" >
     workorder_id, contact_person, time, status
   </sql>
+  
+  <!-- 	//得到处理进度
+	List<WorkorderFlowResult> dispatchRecord(String Workorder_id) ; -->
+    <select id="dispatchRecord" resultType="com.comprehensiveAlarm.jo.WorkorderFlowResult" parameterType="java.lang.String" >
+  select 
+   workorder_flow.*,workorder.contact_org
+    from workorder_flow,workorder
+    where workorder_flow.workorder_id =workorder.workorder_id and  workorder_flow.workorder_id =#{Workorder_id}
+  </select>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.comprehensiveAlarm.po.WorkorderFlowExample" >
     select
     <if test="distinct" >

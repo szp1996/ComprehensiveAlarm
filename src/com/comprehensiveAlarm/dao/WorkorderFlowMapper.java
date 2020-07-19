@@ -1,11 +1,18 @@
 package com.comprehensiveAlarm.dao;
 
+import com.comprehensiveAlarm.jo.WorkorderFlowResult;
 import com.comprehensiveAlarm.po.WorkorderFlow;
 import com.comprehensiveAlarm.po.WorkorderFlowExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface WorkorderFlowMapper {
+	
+	//得到处理进度
+	List<WorkorderFlowResult> dispatchRecord(String Workorder_id) ;
+	
+
+	
     int countByExample(WorkorderFlowExample example);
 
     int deleteByExample(WorkorderFlowExample example);

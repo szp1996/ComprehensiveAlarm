@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.comprehensiveAlarm.jo.DispatchParam;
+import com.comprehensiveAlarm.jo.WorkorderFlowResult;
 import com.comprehensiveAlarm.jo.WorkorderInformationQueryParam;
 import com.comprehensiveAlarm.po.AlarmCode;
 import com.comprehensiveAlarm.po.Workorder;
+import com.comprehensiveAlarm.po.WorkorderFlow;
 import com.comprehensiveAlarm.po.WorkorderTemplate;
 import com.comprehensiveAlarm.po.WorkorderType;
 import com.comprehensiveAlarm.service.WorkOrderInformationDisplayService;
@@ -63,6 +65,25 @@ public class WorkOrderInformationDisplayController {
 	public Object  dispatch(@RequestBody DispatchParam param) {
 		Map<String,Object> result=new HashMap<String,Object>();
 		workOrderInformationDisplayService.dispatch(param);
+		result.put("result", 1);
+		return result;
+	}
+	//得到处理进度
+	@RequestMapping("/dispatchRecord")
+	@ResponseBody
+	public Object  dispatchRecord(@RequestBody WorkorderFlow param) {
+		Map<String,Object> result=new HashMap<String,Object>();
+		List<WorkorderFlowResult> list=workOrderInformationDisplayService.dispatchRecord(param.getWorkorder_id());
+		result.put("result", 1);
+		result.put("data", list);
+		return result;
+	}
+	//工单完成
+	@RequestMapping("/overOrders")
+	@ResponseBody
+	public Object  overOrders(@RequestBody Workorder param) {
+		Map<String,Object> result=new HashMap<String,Object>();
+		workOrderInformationDisplayService.overOrders(param.getWorkorder_id());
 		result.put("result", 1);
 		return result;
 	}

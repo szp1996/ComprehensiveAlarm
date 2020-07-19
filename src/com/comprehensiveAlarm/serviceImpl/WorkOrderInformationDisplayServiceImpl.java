@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.comprehensiveAlarm.dao.AlarmCodeMapper;
 import com.comprehensiveAlarm.dao.DispatchRecordMapper;
+import com.comprehensiveAlarm.dao.WorkorderFlowMapper;
 import com.comprehensiveAlarm.dao.WorkorderMapper;
 import com.comprehensiveAlarm.dao.WorkorderTemplateMapper;
 import com.comprehensiveAlarm.jo.DispatchParam;
+import com.comprehensiveAlarm.jo.WorkorderFlowResult;
 import com.comprehensiveAlarm.jo.WorkorderInformationQueryParam;
 import com.comprehensiveAlarm.po.AlarmCode;
 import com.comprehensiveAlarm.po.DispatchRecord;
@@ -31,6 +33,9 @@ public class WorkOrderInformationDisplayServiceImpl implements WorkOrderInformat
 
 	@Autowired
 	private DispatchRecordMapper dispatchRecordMapper;
+	
+	@Autowired
+	private WorkorderFlowMapper workorderFlowMapper;
 
 	@Override
 	public List<AlarmCode> getAllAlarmCode() {
@@ -74,6 +79,20 @@ public class WorkOrderInformationDisplayServiceImpl implements WorkOrderInformat
 		//
 		dispatchRecord.setSuccess(1);
 		dispatchRecordMapper.insert(dispatchRecord);
+	}
+
+
+	@Override
+	public List<WorkorderFlowResult> dispatchRecord(String Workorder_id) {
+		// TODO Auto-generated method stub
+		return workorderFlowMapper.dispatchRecord(Workorder_id);
+	}
+
+
+	@Override
+	public void overOrders(String Workorder_id) {
+		// TODO Auto-generated method stub
+		workorderMapper.overOrders(Workorder_id);
 	}
 
 }
