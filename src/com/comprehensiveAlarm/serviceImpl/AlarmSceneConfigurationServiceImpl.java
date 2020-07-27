@@ -20,6 +20,7 @@ public class AlarmSceneConfigurationServiceImpl implements AlarmSceneConfigurati
 
     @Autowired
     private AlarmSceneMapper alarmSceneMapper;
+    @Autowired
     private AlarmCodeMapper alarmCodeMapper;
 
     @Override

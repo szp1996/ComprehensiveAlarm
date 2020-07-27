@@ -111,6 +111,7 @@ alarm_info.alarm_title  ,alarm_code.`level`
      and alarm_info.origin like ('%'+#{origin}+'%') and alarm_scene.scene_name like ('%'+#{scene_name}+'%') and
      alarm_code.alarm_code_name like ('%'+#{alarm_code_name}+'%')
      and alarm_info.alarm_status=#{alarm_status} and alarm_code.`level`=#{level}
+     and date_format(alarm_info.alarm_time,'%Y-%m-%d') between date_format(#{begin_alarm_time},'%Y-%m-%d') and date_format(#{end_alarm_time},'%Y-%m-%d')
      limit #{offset}, #{page_size}
   </select>
   
