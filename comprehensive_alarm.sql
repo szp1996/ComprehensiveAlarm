@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2020-07-06 23:58:31
+Date: 2020-07-27 23:04:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -189,6 +189,7 @@ CREATE TABLE `knowledge_temp` (
   `alarm_codes` varchar(255) DEFAULT NULL,
   `abandon` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
+  `origin_flag` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -216,9 +217,9 @@ DROP TABLE IF EXISTS `workorder_flow`;
 CREATE TABLE `workorder_flow` (
   `workorder_id` varchar(255) NOT NULL,
   `contact_person` varchar(255) DEFAULT NULL,
-  `time` datetime DEFAULT NULL,
+  `time` datetime NOT NULL,
   `status` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`workorder_id`)
+  PRIMARY KEY (`workorder_id`,`time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
